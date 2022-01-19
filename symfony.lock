@@ -187,7 +187,7 @@
     "symfony/doctrine-bridge": {
         "version": "v6.0.2"
     },
-    "symfony/dom-crawler": {
+    "symfony/doctrine-messenger": {
         "version": "v6.0.2"
     },
     "symfony/dotenv": {
