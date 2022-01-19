@@ -36,6 +36,9 @@ class Produit
     #[ORM\Column(type: 'string', length: 255)]
     private $reference;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $tag;
+
     public function __construct()
     {
         $this->sousCategories = new ArrayCollection();
@@ -141,6 +144,18 @@ class Produit
     public function setReference(string $reference): self
     {
         $this->reference = $reference;
+
+        return $this;
+    }
+
+    public function getTag(): ?string
+    {
+        return $this->tag;
+    }
+
+    public function setTag(string $tag): self
+    {
+        $this->tag = $tag;
 
         return $this;
     }
