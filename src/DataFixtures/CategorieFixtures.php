@@ -2,7 +2,7 @@
 
 namespace App\DataFixtures;
 
-use App\Entity\Valeurs;
+use App\Entity\Categorie;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 
@@ -16,8 +16,6 @@ class CategorieFixtures extends Fixture
         ["Nom" => "Eclairage"],
         ["Nom" => "Quincaillerie"],
         ["Nom" => "Meuble de rangement"],
-
-
     ];
 
     public function load(ObjectManager $manager): void
@@ -25,6 +23,8 @@ class CategorieFixtures extends Fixture
         foreach (self::CATEGORIES as $key => $categorieInfos) {
             $categorie = new Categorie();
             $categorie->setNom($categorieInfos["Nom"]);
+
+            $this->addReference('categorie_' . $key, $categorie);
 
             $manager->persist($categorie);
         }
