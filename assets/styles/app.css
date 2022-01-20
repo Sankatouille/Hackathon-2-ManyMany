@@ -1,4 +1,6 @@
-Barre de recherche .searchbar {
+/*Barre de recherche*/
+
+.searchbar {
     background-color: magenta;
     display: table-cell;
     vertical-align: middle;

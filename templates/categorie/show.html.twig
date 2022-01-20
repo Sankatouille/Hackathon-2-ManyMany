@@ -3,16 +3,16 @@
 {% block title %}Categorie{% endblock %}
 
 {% block body %}
-    <h1>Salle de bain - Les {{ categorie.nom }}</h1>
-
     <div class="searchbar">
-            <div>
-                {{ form_widget(form.search) }}
-                {{ form_help(form.search) }}
-                {{ form_errors(form.search) }}
-                <button id="search" class="btn-primary"><i class="fas fa-search"></i></button>
-            </div>
+        {{ form_start(form) }}
+        {{ form_widget(form.search) }}
+        {{ form_help(form.search) }}
+        {{ form_errors(form.search) }}
+        <button id="search" class="btn-primary"><i class="fas fa-search"></i></button>
+        {{ form_end(form) }}
     </div>
+
+    <h1>Salle de bain - Les {{ categorie.nom }}</h1>
 
     <div class="contenant">
         <div class="souscategories">
