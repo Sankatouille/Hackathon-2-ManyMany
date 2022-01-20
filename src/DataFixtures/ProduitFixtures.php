@@ -9,6 +9,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
 class ProduitFixtures extends Fixture implements DependentFixtureInterface
+
 {
     public const PRODUITS = [
         ["Nom" => "Boite de 10 dalles vinyles auto-adhésives imitation carrelage (2,04m²) - Starfloor",

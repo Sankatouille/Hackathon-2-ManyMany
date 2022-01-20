@@ -1,16 +1,213 @@
-/*Barre de recherche*/
 
-.searchbar {
-    background-color: magenta;
-    display: table-cell;
-    vertical-align: middle;
-    width: 400px;
-    padding: 8px;
-    border: 1px solid #4D4848;
-    border-radius: 4px;
-    box-sizing: border-box;
-    margin-top: 4px;
-    margin-bottom: 10px;
-    margin-right: 0px;
-    margin-left: 0px;
+* {
+    margin: 0px;
 }
+
+.left {
+    border-radius: 0.8%;
+    box-shadow: 0px 2px 4px 0px #7B7B7B;
+    width:15%;
+    text-align:center;
+}
+
+.right {
+    border-radius: 0.8%;
+    box-shadow: 0px 2px 4px 0px #7B7B7B;
+    width:15%;
+    text-align:center;
+}
+
+.souscategories {
+    width:70%;
+}
+
+.contenant {
+    display: flex;
+    justify-content: center;
+    gap:20px;
+}
+
+.sousCategorie {
+    margin:2%;
+    padding:2%;
+}
+
+.produits {
+    display: flex;
+    justify-content: center;
+    gap:20px;
+}
+
+.produit {
+    text-align:center;
+    border-radius: 2%;
+    box-shadow: 0px 2px 4px 0px #7B7B7B;
+    width: 200px;
+    height: 200px;
+}
+
+.btn {
+    padding: 5px 10px;
+    box-shadow: 0px 2px 4px 0px #7B7B7B;
+    border-radius: 3%;
+    width:10%;
+    padding:1%;
+    background-color: rgb(56, 153, 145);
+    text-align:center;
+}
+
+.btn a {
+    text-decoration: none;
+    color:rgb(13, 24, 73);
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: rgb(64, 187, 177);
+}
+
+.btnTags {
+    padding: 5px 10px;
+    box-shadow: 0px 2px 4px 0px #7B7B7B;
+    border-radius: 3%;
+    width:10%;
+    padding:3%;
+    background-color: rgb(56, 153, 145);
+    text-align:center;
+}
+
+.btnTags a {
+    text-decoration: none;
+    color:rgb(13, 24, 73);
+    font-weight: bold;
+}
+
+.btnTags:hover {
+    background-color: rgb(64, 187, 177);
+}
+
+.tags {
+display:flex;
+flex-direction:row;
+justify-content:center;
+padding:2%;
+gap:5%;
+}
+
+html {
+    background-image: url("/Users/johanmabit/Desktop/FORMATIONS/WILD CODE SCHOOL/HACKATHON/MANYMANY/Hackathon-2-ManyMany/public/build/images/blurry-gradient-haikei.png");
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color : #00398A;
+
+    font-family: 'Open Sans', sans-serif;
+    z-index: -10;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 3em;
+    display:flex;
+    justify-content:center;
+}
+
+h3 {
+    margin-top: 30px;
+    font-weight: 400;
+    font-size: 1.5em;
+}
+
+.logo {
+    width: 300px;
+    margin-left: 5%;
+}
+
+.textes-home {
+    width: 38%;
+    margin: 50px 0 0 10%;
+}
+
+.maison-home {
+    margin: 50px 10% 0 10%;
+    width: 80%;
+    z-index: 0;
+    position:relative;
+
+}
+
+.btn-home {
+    color: white;
+    background-color: #00398A;
+    padding: 15px 25px;
+    border-radius: 50px;
+    text-align: center;
+}
+
+.asterisque {
+    font-size: 10px;
+    margin-left: 35%;
+}
+
+#btn-sdb, #btn-salon, #btn-bureau, #btn-chambre, #btn-cuisine, #btn-chambre2 {
+    height: 20px;
+    width: 20px;
+    background-color: #00398A;
+    border-radius: 20px;
+
+    z-index: 2;
+    position:relative;
+    box-shadow: 0 0 66px 6px #00398A;
+    animation: shadow 1s infinite ease;
+}
+
+#btn-sdb {
+    bottom: -600px;
+    margin-left: 52%;
+}
+
+#btn-salon {
+    bottom: -600px;
+    margin-left: 35%;
+}
+
+#btn-bureau {
+    bottom: -450px;
+    margin-left: 37%;
+}
+
+#btn-chambre {
+    bottom: -400px;
+    margin-left: 50%;
+}
+
+#btn-cuisine {
+    bottom: -640px;
+    margin-left: 50%;
+}
+
+#btn-chambre2 {
+    bottom: -640px;
+    margin-left: 35%;
+}
+
+#btn-sdb:hover, #btn-salon:hover, #btn-bureau:hover, #btn-chambre:hover, #btn-chambre2:hover {
+    background-color:#FBAA8E;
+    transition: all 1s ease-in;
+    transform: scale(1.8);
+    box-shadow: 0 0 66px 6px red;
+    animation: shadow 1s infinite ease;
+}
+
+@keyframes shadow {
+    0% {
+      opacity: 0;
+    }
+    50% {
+      opacity: 1;
+    }
+    to {
+      opacity: 0;
+    }
+  }
