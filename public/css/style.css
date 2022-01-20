@@ -144,9 +144,13 @@ h3 {
     align-items: center;
 }
 
-/* .conteneur-maison img {
-    padding-top: 10%;
-} */
+.conteneur-maison img {
+    object-fit: cover;
+    height: 400px;
+    margin-top:-15%;
+}
+
+
 
 .logo {
     width: 300px;
@@ -184,7 +188,8 @@ h3 {
 /* Boutons homepage */
 
 #btn-sdb, #btn-salon, #btn-bureau, #btn-chambre, #btn-cuisine,
-#btn-chambre2, #btn-buanderie, #btn-terrasse{
+#btn-chambre2, #btn-buanderie, #btn-terrasse,
+#btn-sols,#btn-robinetterie,#btn-murs,#btn-eclairage,#btn-quincaillerie,#btn-meublerangement{
     height: 1em;
     width: 1em;
     background-color: #00398A;
@@ -228,10 +233,42 @@ h3 {
     left: 9em;
 }
 
+   /* PAGE CUISINE */
+#btn-sols{
+    bottom: -20em;
+    right: 8em;
+}
+
+#btn-robinetterie{
+    bottom: -6.5em;
+    right: 8em;
+}
+
+#btn-murs{
+    top: -3em;
+    right: 8em;
+}
+
+#btn-eclairage{
+    bottom: 2em;
+    left: 8.7em;
+}
+
+#btn-quincaillerie{
+    bottom: 2em;
+    right: 2em;
+}
+
+#btn-meublerangement{
+    bottom: -8em;
+    left: 14em;
+}
+
 #btn-sdb:hover, #btn-salon:hover, #btn-bureau:hover,
 #btn-chambre:hover, #btn-chambre2:hover, #btn-buanderie:hover,
-#btn-terrasse:hover {
-    background-color:#FBAA8E;
+#btn-terrasse:hover,#btn-sols:hover,#btn-robinetterie:hover,#btn-murs:hover,
+#btn-eclairage:hover,#btn-quincaillerie:hover,#btn-meublerangement:hover {
+    background-color:#dbbdb3;
     transition: all 1s ease-in;
     transform: scale(1.8);
     box-shadow: 0 0 66px 6px red;

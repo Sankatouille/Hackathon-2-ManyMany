@@ -62,118 +62,118 @@ class ProduitController extends AbstractController
     }
 
 
-    #[Route('/{id}/conseil', name: 'conseils_produit', methods: ['GET','POST'])]
-    public function getConseilsProduit(Produit $produit,  string $id){
-        $client = new Client();
-        $crawler = $client->request('GET', 'https://www.manomano.fr/nos-conseils');
+//     #[Route('/{id}/conseil', name: 'conseils_produit', methods: ['GET','POST'])]
+//     public function getConseilsProduit(Produit $produit,  string $id){
+//         $client = new Client();
+//         $crawler = $client->request('GET', 'https://www.manomano.fr/nos-conseils');
 
-        $results = [];
-        $crawler -> filter ('li > a.Hub_link__HJZxy')-> each (function ($node) use (&$results){
-            $results[] = [
-                "title" => $node -> text(),
-                "url" => $node -> attr('href')
-            ];
-        });
+//         $results = [];
+//         $crawler -> filter ('li > a.Hub_link__HJZxy')-> each (function ($node) use (&$results){
+//             $results[] = [
+//                 "title" => $node -> text(),
+//                 "url" => $node -> attr('href')
+//             ];
+//         });
 
-        // création d'une table de correspondance entre mot clé et categorie
-        $tableCorrespondance = [
-            "crédance" => "99",
-            "murs" => "102",
-            "sols" => "99",
-            "étanchéité" => "100",
-            "porte coulissante" => "102",
-            "salle de bains" => "102",
-            "bains" => "100",
-            "Baignoire" => "100",
-            "baignoire" => "100",
-            "spa" => "100",
-            "spas" => "100",
-            "bains" => "100",
-            "spots" => "103",
-            "carrelage" => "99",
-            "carreleur" => "99",
-            "canalisation" => "101",
-            "joint" => "101",
-            "douche" => "100",
-            "lavabo" => "100",
-            "lave-main" => "101",
-            "joints de carrelage" => "99"
-        ];
+//         // création d'une table de correspondance entre mot clé et categorie
+//         $tableCorrespondance = [
+//             "crédance" => "99",
+//             "murs" => "102",
+//             "sols" => "99",
+//             "étanchéité" => "100",
+//             "porte coulissante" => "102",
+//             "salle de bains" => "102",
+//             "bains" => "100",
+//             "Baignoire" => "100",
+//             "baignoire" => "100",
+//             "spa" => "100",
+//             "spas" => "100",
+//             "bains" => "100",
+//             "spots" => "103",
+//             "carrelage" => "99",
+//             "carreleur" => "99",
+//             "canalisation" => "101",
+//             "joint" => "101",
+//             "douche" => "100",
+//             "lavabo" => "100",
+//             "lave-main" => "101",
+//             "joints de carrelage" => "99"
+//         ];
 
-        // récupération des mots clés correspondant  à l'id, stocké dans un tableau
-        $motsClesParId = [];
+//         // récupération des mots clés correspondant  à l'id, stocké dans un tableau
+//         $motsClesParId = [];
 
-        foreach ($tableCorrespondance as $key => $value) {
+//         foreach ($tableCorrespondance as $key => $value) {
 
-            if ( $id == $value) {
-                array_push( $motsClesParId, $key);
-            };
-        }
+//             if ( $id == $value) {
+//                 array_push( $motsClesParId, $key);
+//             };
+//         }
 
-        // Selection des articles avec les mots clés associés à l'id
-        $tousArticlesFiltres = [];
+//         // Selection des articles avec les mots clés associés à l'id
+//         $tousArticlesFiltres = [];
 
-        foreach ($motsClesParId as $motCle) {
+//         foreach ($motsClesParId as $motCle) {
 
-            foreach($results as $result) {
-                // cherche dans le titre les valeurs correspondantes
-                if (str_contains($result['title'], $motCle)){
-                    array_push( $tousArticlesFiltres, ["title"=>$result['title'], "url"=>$result['url']]);
-                };
-            }
-        }
+//             foreach($results as $result) {
+//                 // cherche dans le titre les valeurs correspondantes
+//                 if (str_contains($result['title'], $motCle)){
+//                     array_push( $tousArticlesFiltres, ["title"=>$result['title'], "url"=>$result['url']]);
+//                 };
+//             }
+//         }
 
-        // retourner 4 valeurs aléatoires
-        $articlesRandoms = [];
+//         // retourner 4 valeurs aléatoires
+//         $articlesRandoms = [];
 
-        for ($i=0; $i<4; $i++) {
-            $articleRandomId = array_rand($tousArticlesFiltres);
-            array_push($articlesRandoms, $tousArticlesFiltres[$articleRandomId]);
-        }
+//         for ($i=0; $i<4; $i++) {
+//             $articleRandomId = array_rand($tousArticlesFiltres);
+//             array_push($articlesRandoms, $tousArticlesFiltres[$articleRandomId]);
+//         }
 
-      
-        return $this->render('produit/show.html.twig', [
-            'results' => $results,
-            'articles' => $articlesRandoms
-        ]);
-    }
-  
-  
-  #[Route('/{id}', name: 'produit_show', methods: ['GET'])]
-    public function show(Produit $produit): Response
-    {
-        $client = new Client();
-        $crawler = $client->request('GET', 'https://www.manomano.fr/nos-conseils');
 
-        $result = [];
-        $crawler -> filter ('li > a.Hub_link__HJZxy')-> each (function ($node) use (&$result){
-            $result[] = [
-                'title' => $node -> text(),
-                'url' => $node -> attr('href')];
-        });
-        return $this->render('produit/show.html.twig', [
-            'result' => $result,
-            'produit' => $produit,
-        ]);
-    }
+//         return $this->render('produit/show.html.twig', [
+//             'results' => $results,
+//             'articles' => $articlesRandoms
+//         ]);
+//     }
 
-    #[Route('/{id}/comparatif', name: 'comparatif_produit', methods: ['GET','POST'])]
-    public function getComparatifProduit(Produit $produit){
-        $client = new Client();
-        $crawler = $client->request('GET', 'https://www.manomano.fr/nos-comparatifs');
 
-        $comparatifs = [];
-        $crawler -> filter ('li > a.Hub_link__HJZxy')-> each (function ($node) use (&$comparatifs){
-            $comparatifs[] = [
-                'title' => $node -> text(),
-                'url' => $node -> attr('href')];
-        });
-        dd($comparatifs);
-        return $this->render('produit/show.html.twig', [
-            'comparatif' => $comparatifs,
-            'produit' => $produit,
-        ]);
-    }
+//   #[Route('/{id}', name: 'produit_show', methods: ['GET'])]
+//     public function show(Produit $produit): Response
+//     {
+//         $client = new Client();
+//         $crawler = $client->request('GET', 'https://www.manomano.fr/nos-conseils');
+
+//         $result = [];
+//         $crawler -> filter ('li > a.Hub_link__HJZxy')-> each (function ($node) use (&$result){
+//             $result[] = [
+//                 'title' => $node -> text(),
+//                 'url' => $node -> attr('href')];
+//         });
+//         return $this->render('produit/show.html.twig', [
+//             'result' => $result,
+//             'produit' => $produit,
+//         ]);
+//     }
+
+//     #[Route('/{id}/comparatif', name: 'comparatif_produit', methods: ['GET','POST'])]
+//     public function getComparatifProduit(Produit $produit){
+//         $client = new Client();
+//         $crawler = $client->request('GET', 'https://www.manomano.fr/nos-comparatifs');
+
+//         $comparatifs = [];
+//         $crawler -> filter ('li > a.Hub_link__HJZxy')-> each (function ($node) use (&$comparatifs){
+//             $comparatifs[] = [
+//                 'title' => $node -> text(),
+//                 'url' => $node -> attr('href')];
+//         });
+//         dd($comparatifs);
+//         return $this->render('produit/show.html.twig', [
+//             'comparatif' => $comparatifs,
+//             'produit' => $produit,
+//         ]);
+//     }
 
     #[Route('/{id}/edit', name: 'produit_edit', methods: ['GET', 'POST'])]
     public function edit(Request $request, Produit $produit, EntityManagerInterface $entityManager): Response
@@ -183,4 +183,5 @@ class ProduitController extends AbstractController
 
 
 
+}
 }
