@@ -18,16 +18,16 @@ class Produit
     #[ORM\Column(type: 'string', length: 255)]
     private $nom;
 
-    #[ORM\Column(type: 'integer')]
+    #[ORM\Column(type: 'string')]
     private $prix;
 
-    #[ORM\Column(type: 'text')]
+    #[ORM\Column(type: 'text', nullable:true)]
     private $informations;
 
     #[ORM\ManyToMany(targetEntity: SousCategorie::class, mappedBy: 'produit')]
     private $sousCategories;
 
-    #[ORM\Column(type: 'string', length: 255)]
+    #[ORM\Column(type: 'string', length: 255, nullable:true )]
     private $marque;
 
     #[ORM\Column(type: 'string', length: 255)]
@@ -35,6 +35,9 @@ class Produit
 
     #[ORM\Column(type: 'string', length: 255)]
     private $reference;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private $tag;
 
     public function __construct()
     {
@@ -58,12 +61,12 @@ class Produit
         return $this;
     }
 
-    public function getPrix(): ?int
+    public function getPrix(): ?string
     {
         return $this->prix;
     }
 
-    public function setPrix(int $prix): self
+    public function setPrix(string $prix): self
     {
         $this->prix = $prix;
 
@@ -75,7 +78,7 @@ class Produit
         return $this->informations;
     }
 
-    public function setInformations(string $informations): self
+    public function setInformations(?string $informations): self
     {
         $this->informations = $informations;
 
@@ -114,7 +117,7 @@ class Produit
         return $this->marque;
     }
 
-    public function setMarque(string $marque): self
+    public function setMarque(?string $marque): self
     {
         $this->marque = $marque;
 
@@ -141,6 +144,18 @@ class Produit
     public function setReference(string $reference): self
     {
         $this->reference = $reference;
+
+        return $this;
+    }
+
+    public function getTag(): ?string
+    {
+        return $this->tag;
+    }
+
+    public function setTag(string $tag): self
+    {
+        $this->tag = $tag;
 
         return $this;
     }
