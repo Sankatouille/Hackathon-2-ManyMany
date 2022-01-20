@@ -10,6 +10,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\DomCrawler\Crawler;
+use Goutte\Client;
 
 #[Route('/produit')]
 class ProduitController extends AbstractController
@@ -46,6 +48,22 @@ class ProduitController extends AbstractController
     public function show(Produit $produit): Response
     {
         return $this->render('produit/show.html.twig', [
+            'produit' => $produit,
+        ]);
+    }
+
+    #[Route('/{id}/conseil', name: 'conseils_produit', methods: ['GET','POST'])]
+    public function getConseilsProduit(Produit $produit){
+        $client = new Client();
+        $crawler = $client->request('GET', 'https://www.manomano.fr/nos-conseils');
+
+        $result = [];
+        $crawler -> filter ('li > a.Hub_link__HJZxy')-> each (function ($node) use (&$result){
+            $result[$node -> text()] = $node -> attr('href');
+        });
+        // dd($result);
+        return $this->render('produit/show.html.twig', [
+            'result' => $result,
             'produit' => $produit,
         ]);
     }

@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Categorie;
+use App\Entity\Produit;
+use App\Entity\SousCategorie;
 use App\Form\CategorieType;
 use App\Repository\ProduitRepository;
 use App\Repository\CategorieRepository;

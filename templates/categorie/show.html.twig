@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categorie{% endblock %}
+
+{% block body %}
+
+    <h1>Salle de bain - Les {{ categorie.nom }}</h1>
+
+    <div class="contenant">
+        <div class="souscategories">
+
+            {% for sc in categorie.sousCategorie %}
+
+                <div class="sousCategorie"><h3>{{ sc.nom }}</h3></div>
+                    <div class="produits">
+                        {% for produit in sc.produit|slice (1, 5) %}
+                            <div class="produit">{{ produit.nom }}</div>
+                        {% endfor %}
+                    </div>
+
+                {% endfor %}
+        </div>
+    </div>
+
+    <center>
+        <div class="btn">
+            <a href="{{ path('categorie_index') }}">Retour</a>
+        </div>
+    </center>
+
+{% endblock %}
