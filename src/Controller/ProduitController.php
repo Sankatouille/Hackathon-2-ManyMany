@@ -57,37 +57,73 @@ class ProduitController extends AbstractController
         $client = new Client();
         $crawler = $client->request('GET', 'https://www.manomano.fr/nos-conseils');
 
-        $result = [];
-        $crawler -> filter ('li > a.Hub_link__HJZxy')-> each (function ($node) use (&$result){
-            $result[] = [
+        $results = [];
+        $crawler -> filter ('li > a.Hub_link__HJZxy')-> each (function ($node) use (&$results){
+            $results[] = [
                 "title" => $node -> text(),
                 "url" => $node -> attr('href')
             ];
         });
 
-        /// tri des données
-        $tableCorrespondance = [];
+        // création d'une table de correspondance entre mot clé et categorie
+        $tableCorrespondance = [
+            "crédance" => "99",
+            "murs" => "102",
+            "sols" => "99",
+            "étanchéité" => "100",
+            "porte coulissante" => "102",
+            "salle de bains" => "102",
+            "bains" => "100",
+            "Baignoire" => "100",
+            "baignoire" => "100",
+            "spa" => "100",
+            "spas" => "100",
+            "bains" => "100",
+            "spots" => "103",
+            "carrelage" => "99",
+            "carreleur" => "99",
+            "canalisation" => "101",
+            "joint" => "101",
+            "douche" => "100",
+            "lavabo" => "100",
+            "lave-main" => "101",
+            "joints de carrelage" => "99"
+        ];
 
+        // récupération des mots clés correspondant  à l'id, stocké dans un tableau
         $motsClesParId = [];
 
-        $motsClesParId = in_array( $id, $tableCorrespondance);
+        foreach ($tableCorrespondance as $key => $value) {
 
-        $articlesFiltres = [];
-
-        foreach ($motsClesParId as $id => $motCle) {
-            // cherche dans le titre les valeurs correspondantes
-           $articlesFiltres = preg_match('/$motCle/', $result['title'] );
-            // on filtre les resultat result
-
-
+            if ( $id == $value) {
+                array_push( $motsClesParId, $key);
+            };
         }
+
+        //dd($motsClesParId);
+
+        // Selection des articles avec les mots clés associés à l'id
+        $tousArticlesFiltres = [];
+
+        foreach ($motsClesParId as $motCle) {
+
+            foreach($results as $result) {
+                // cherche dans le titre les valeurs correspondantes
+                if (str_contains($result['title'], $motCle)){
+                    array_push( $tousArticlesFiltres, $result['title']);
+                };
+               // on filtre les resultat result
+            }
+        }
+
+        dd($tousArticlesFiltres);
 
 
         // retourner 4 valeurs aléatoires
 
 
         return $this->render('produit/show.html.twig', [
-            'result' => $result,
+            'results' => $results,
             'produit' => $produit,
         ]);
     }
