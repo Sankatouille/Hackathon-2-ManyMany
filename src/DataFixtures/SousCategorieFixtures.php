@@ -10,6 +10,7 @@ use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 class SousCategorieFixtures extends Fixture implements DependentFixtureInterface
 {
     public const SOUSCATEGORIES = [
+
         [
             "Nom" => "Sol PVC et Vinyle",
             "Reference" => "categorie_0"
