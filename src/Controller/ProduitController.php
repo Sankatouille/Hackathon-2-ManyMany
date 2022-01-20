@@ -53,15 +53,39 @@ class ProduitController extends AbstractController
     }
 
     #[Route('/{id}/conseil', name: 'conseils_produit', methods: ['GET','POST'])]
-    public function getConseilsProduit(Produit $produit){
+    public function getConseilsProduit(Produit $produit,  string $id){
         $client = new Client();
         $crawler = $client->request('GET', 'https://www.manomano.fr/nos-conseils');
 
         $result = [];
         $crawler -> filter ('li > a.Hub_link__HJZxy')-> each (function ($node) use (&$result){
-            $result[$node -> text()] = $node -> attr('href');
+            $result[] = [
+                "title" => $node -> text(),
+                "url" => $node -> attr('href')
+            ];
         });
-        // dd($result);
+
+        /// tri des données
+        $tableCorrespondance = [];
+
+        $motsClesParId = [];
+
+        $motsClesParId = in_array( $id, $tableCorrespondance);
+
+        $articlesFiltres = [];
+
+        foreach ($motsClesParId as $id => $motCle) {
+            // cherche dans le titre les valeurs correspondantes
+           $articlesFiltres = preg_match('/$motCle/', $result['title'] );
+            // on filtre les resultat result
+
+
+        }
+
+
+        // retourner 4 valeurs aléatoires
+
+
         return $this->render('produit/show.html.twig', [
             'result' => $result,
             'produit' => $produit,
