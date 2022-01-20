@@ -1,6 +1,6 @@
 body {
     background-color: rgb(241, 233, 233);
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Open Sans', sans-serif;
     color:rgb(21, 21, 87);
 }
 
@@ -41,13 +41,43 @@ h1 {
     width:10%;
     padding:1%;
     background-color: rgb(56, 153, 145);
+    text-align:center;
 }
 
 .btn a {
     text-decoration: none;
     color:rgb(13, 24, 73);
+    font-weight: bold;
 }
 
 .btn:hover {
     background-color: rgb(64, 187, 177);
+}
+
+.btnTags {
+    padding: 5px 10px;
+    box-shadow: 0px 2px 4px 0px #7B7B7B;
+    border-radius: 3%;
+    width:10%;
+    padding:3%;
+    background-color: rgb(56, 153, 145);
+    text-align:center;
+}
+
+.btnTags a {
+    text-decoration: none;
+    color:rgb(13, 24, 73);
+    font-weight: bold;
+}
+
+.btnTags:hover {
+    background-color: rgb(64, 187, 177);
+}
+
+.tags {
+display:flex;
+flex-direction:row;
+justify-content:center;
+padding:2%;
+gap:5%;
 }
