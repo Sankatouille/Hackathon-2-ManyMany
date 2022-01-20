@@ -100,7 +100,6 @@ class ProduitController extends AbstractController
             };
         }
 
-        //dd($motsClesParId);
 
         // Selection des articles avec les mots clés associés à l'id
         $tousArticlesFiltres = [];
@@ -110,50 +109,31 @@ class ProduitController extends AbstractController
             foreach($results as $result) {
                 // cherche dans le titre les valeurs correspondantes
                 if (str_contains($result['title'], $motCle)){
-                    array_push( $tousArticlesFiltres, $result['title']);
+                    array_push( $tousArticlesFiltres, ["title"=>$result['title'], "url"=>$result['url']]);
                 };
-               // on filtre les resultat result
             }
         }
 
-        dd($tousArticlesFiltres);
-
-
         // retourner 4 valeurs aléatoires
+        $articlesRandoms = [];
+
+        for ($i=0; $i<4; $i++) {
+            $articleRandomId = array_rand($tousArticlesFiltres);
+            array_push($articlesRandoms, $tousArticlesFiltres[$articleRandomId]);
+        }
+
+        //dd($articlesRandoms);
+        // aller chercher l'url correspondante
+
 
 
         return $this->render('produit/show.html.twig', [
             'results' => $results,
             'produit' => $produit,
+            'articles' => $articlesRandoms
         ]);
     }
 
-    #[Route('/{id}/edit', name: 'produit_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Produit $produit, EntityManagerInterface $entityManager): Response
-    {
-        $form = $this->createForm(ProduitType::class, $produit);
-        $form->handleRequest($request);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $entityManager->flush();
 
-            return $this->redirectToRoute('produit_index', [], Response::HTTP_SEE_OTHER);
-        }
-
-        return $this->renderForm('produit/edit.html.twig', [
-            'produit' => $produit,
-            'form' => $form,
-        ]);
-    }
-
-    #[Route('/{id}', name: 'produit_delete', methods: ['POST'])]
-    public function delete(Request $request, Produit $produit, EntityManagerInterface $entityManager): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$produit->getId(), $request->request->get('_token'))) {
-            $entityManager->remove($produit);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('produit_index', [], Response::HTTP_SEE_OTHER);
-    }
 }
