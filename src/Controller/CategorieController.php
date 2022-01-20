@@ -70,13 +70,12 @@ class CategorieController extends AbstractController
     }
 
 
-    #[Route('/{id}/{tag}', name: 'categorie_show', methods: ['GET'])]
-    public function showTag(Categorie $categorie, string $tag): Response
-    {
-        return $this->render('categorie/showTag.html.twig', [
-            'categorie' => $categorie,
-            'tagGet'=> $tag
-        ]);
-    }
-
+    // #[Route('/{id}/{tag}', name: 'categorie_show', methods: ['GET'])]
+    // public function showTag(Categorie $categorie, string $tag): Response
+    // {
+    //     return $this->render('categorie/showTag.html.twig', [
+    //         'categorie' => $categorie,
+    //         'tagGet' => $tag
+    //     ]);
+    // }
 }
