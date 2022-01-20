@@ -2,6 +2,97 @@
     margin: 0px;
 }
 
+.left {
+    border-radius: 0.8%;
+    box-shadow: 0px 2px 4px 0px #7B7B7B;
+    width:15%;
+    text-align:center;
+}
+
+.right {
+    border-radius: 0.8%;
+    box-shadow: 0px 2px 4px 0px #7B7B7B;
+    width:15%;
+    text-align:center;
+}
+
+.souscategories {
+    width:70%;
+}
+
+.contenant {
+    display: flex;
+    justify-content: center;
+    gap:20px;
+}
+
+.sousCategorie {
+    margin:2%;
+    padding:2%;
+}
+
+.produits {
+    display: flex;
+    justify-content: center;
+    gap:20px;
+}
+
+.produit {
+    text-align:center;
+    border-radius: 2%;
+    box-shadow: 0px 2px 4px 0px #7B7B7B;
+    width: 200px;
+    height: 200px;
+}
+
+.btn {
+    padding: 5px 10px;
+    box-shadow: 0px 2px 4px 0px #7B7B7B;
+    border-radius: 3%;
+    width:10%;
+    padding:1%;
+    background-color: rgb(56, 153, 145);
+    text-align:center;
+}
+
+.btn a {
+    text-decoration: none;
+    color:rgb(13, 24, 73);
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: rgb(64, 187, 177);
+}
+
+.btnTags {
+    padding: 5px 10px;
+    box-shadow: 0px 2px 4px 0px #7B7B7B;
+    border-radius: 3%;
+    width:10%;
+    padding:3%;
+    background-color: rgb(56, 153, 145);
+    text-align:center;
+}
+
+.btnTags a {
+    text-decoration: none;
+    color:rgb(13, 24, 73);
+    font-weight: bold;
+}
+
+.btnTags:hover {
+    background-color: rgb(64, 187, 177);
+}
+
+.tags {
+display:flex;
+flex-direction:row;
+justify-content:center;
+padding:2%;
+gap:5%;
+}
+
 html {
     background-image: url("/Users/johanmabit/Desktop/FORMATIONS/WILD CODE SCHOOL/HACKATHON/MANYMANY/Hackathon-2-ManyMany/public/build/images/blurry-gradient-haikei.png");
     height: 100%;
@@ -17,6 +108,8 @@ html {
 h1 {
     font-weight: 800;
     font-size: 3em;
+    display:flex;
+    justify-content:center;
 }
 
 h3 {
