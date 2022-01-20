@@ -3,6 +3,8 @@
 namespace App\Controller;
 
 use App\Entity\Categorie;
+use App\Entity\Produit;
+use App\Entity\SousCategorie;
 use App\Form\CategorieType;
 use App\Repository\CategorieRepository;
 use Doctrine\ORM\EntityManagerInterface;
@@ -71,7 +73,7 @@ class CategorieController extends AbstractController
     #[Route('/{id}', name: 'categorie_delete', methods: ['POST'])]
     public function delete(Request $request, Categorie $categorie, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$categorie->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $categorie->getId(), $request->request->get('_token'))) {
             $entityManager->remove($categorie);
             $entityManager->flush();
         }
