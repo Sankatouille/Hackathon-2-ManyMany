@@ -6,7 +6,7 @@ use App\Entity\Produit;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 
-class SousCategorieFixtures extends Fixture
+class ProduitFixtures extends Fixture
 {
     public const PRODUITS = [
         ["Nom" => "Boite de 10 dalles vinyles auto-adhésives imitation carrelage (2,04m²) - Starfloor",

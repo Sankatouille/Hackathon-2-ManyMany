@@ -5,8 +5,9 @@ namespace App\DataFixtures;
 use App\Entity\SousCategorie;
 use Doctrine\Persistence\ObjectManager;
 use Doctrine\Bundle\FixturesBundle\Fixture;
+use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 
-class SousCategorieFixtures extends Fixture
+class SousCategorieFixtures extends Fixture implements DependentFixtureInterface
 {
     public const SOUSCATEGORIES = [
         ["Nom" => "Sol PVC et Vinyle",
@@ -24,7 +25,7 @@ class SousCategorieFixtures extends Fixture
         "Reference" => "categorie_1"],
         ["Nom" => "Douche hydromassante",
         "Reference" => "categorie_1"],
-               ["Nom" => "Baignoire",
+        ["Nom" => "Baignoire",
         "Reference" => "categorie_1"],
 
         ["Nom" => "Robinet Bas",
@@ -77,13 +78,19 @@ class SousCategorieFixtures extends Fixture
         foreach (self::SOUSCATEGORIES as $key => $sousCategorieInfos) {
             $sousCategorie = new Souscategorie();
             $sousCategorie->setNom($sousCategorieInfos["Nom"]);
-            $sousCategorie->addCategory($sousCategorieInfos["Reference"]);
-
+            $sousCategorie->addCategory($this->getReference($sousCategorieInfos["Reference"]));
             $this->addReference('sousCategorie_' . $key, $sousCategorie);
 
             $manager->persist($sousCategorie);
         }
 
         $manager->flush();
+    }
+
+    public function getDependencies()
+    {
+        return [
+          CategorieFixtures::class,
+        ];
     }
 }
