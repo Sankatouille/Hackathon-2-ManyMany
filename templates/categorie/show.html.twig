@@ -7,11 +7,15 @@
 
     <div class="contenant">
         <div class="souscategories">
+
             {% for sc in categorie.sousCategorie %}
+
                 <div class="sousCategorie"><h3>{{ sc.nom }}</h3></div>
+
                     {% for produit in sc.produit %}
                         <div class="produit">{{ produit.nom }}</div>
                     {% endfor %}
+
                 {% endfor %}
         </div>
     </div>
