@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Produit;
 use App\Form\ProduitType;
 use App\Repository\ProduitRepository;
+use App\Form\SearchBarType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,11 +18,9 @@ use Goutte\Client;
 class ProduitController extends AbstractController
 {
     #[Route('/', name: 'produit_index', methods: ['GET'])]
-    public function index(ProduitRepository $produitRepository): Response
+    public function index(request $request, ProduitRepository $produitRepository): Response
     {
-        return $this->render('produit/index.html.twig', [
-            'produits' => $produitRepository->findAll(),
-        ]);
+        return $this->render('produit/index.html.twig');
     }
 
     #[Route('/new', name: 'produit_new', methods: ['GET', 'POST'])]
@@ -44,14 +43,6 @@ class ProduitController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'produit_show', methods: ['GET'])]
-    public function show(Produit $produit): Response
-    {
-        return $this->render('produit/show.html.twig', [
-            'produit' => $produit,
-        ]);
-    }
-
     #[Route('/{id}/conseil', name: 'conseils_produit', methods: ['GET','POST'])]
     public function getConseilsProduit(Produit $produit){
         $client = new Client();
@@ -59,11 +50,49 @@ class ProduitController extends AbstractController
 
         $result = [];
         $crawler -> filter ('li > a.Hub_link__HJZxy')-> each (function ($node) use (&$result){
-            $result[$node -> text()] = $node -> attr('href');
+            $result[] = [
+                'title' => $node -> text(),
+                'url' => $node -> attr('href')];
         });
-        // dd($result);
+
         return $this->render('produit/show.html.twig', [
             'result' => $result,
+            'produit' => $produit,
+        ]);
+    }
+
+    #[Route('/{id}', name: 'produit_show', methods: ['GET'])]
+    public function show(Produit $produit): Response
+    {
+        $client = new Client();
+        $crawler = $client->request('GET', 'https://www.manomano.fr/nos-conseils');
+
+        $result = [];
+        $crawler -> filter ('li > a.Hub_link__HJZxy')-> each (function ($node) use (&$result){
+            $result[] = [
+                'title' => $node -> text(),
+                'url' => $node -> attr('href')];
+        });
+        return $this->render('produit/show.html.twig', [
+            'result' => $result,
+            'produit' => $produit,
+        ]);
+    }
+
+    #[Route('/{id}/comparatif', name: 'comparatif_produit', methods: ['GET','POST'])]
+    public function getComparatifProduit(Produit $produit){
+        $client = new Client();
+        $crawler = $client->request('GET', 'https://www.manomano.fr/nos-comparatifs');
+
+        $comparatifs = [];
+        $crawler -> filter ('li > a.Hub_link__HJZxy')-> each (function ($node) use (&$comparatifs){
+            $comparatifs[] = [
+                'title' => $node -> text(),
+                'url' => $node -> attr('href')];
+        });
+        dd($comparatifs);
+        return $this->render('produit/show.html.twig', [
+            'comparatif' => $comparatifs,
             'produit' => $produit,
         ]);
     }

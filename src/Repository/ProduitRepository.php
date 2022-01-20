@@ -47,4 +47,15 @@ class ProduitRepository extends ServiceEntityRepository
         ;
     }
     */
+
+    public function findLikeName(string $nom)
+    {
+        $queryBuilder = $this->createQueryBuilder('p')
+            ->where('p.nom LIKE :nom')
+            ->setParameter('nom', '%' . $nom . '%')
+            ->orderBy('p.nom', 'ASC')
+            ->getQuery();
+
+        return $queryBuilder->getResult();
+    }
 }
