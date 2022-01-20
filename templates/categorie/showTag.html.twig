@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+{% block title %}Categorie{% endblock %}
+
+{% block body %}
+
+<div class="blocchoix">
+
+    <div class="catégorie">
+        <img src"" alt="picto">
+        <p>Matériaux</p>
+    </div>
+
+    <div class="catégorie">
+        <img src"" alt="picto">
+        <p>Outils</p>
+    </div>
+
+    <div class="catégorie">
+        <img src"" alt="picto">
+        <p>Ameublement et décoration</p>
+    </div>
+
+</div>
+
+<div class="blocfiltres">
+    <img src="" alt="capture d'écran des filtres site ManoMano">
+</div>
+
+
+<div class="blocproduits">
+
+    <div class="searchbar">
+    </div>
+
+
+    <div class="produits">
+
+        {% for sc in categorie.sousCategorie %}
+        <div class="souscategorie">
+            <h3>{{ sc.nom }}</h3>
+                <div class="articles">
+                {% for produit in sc.produit %}
+
+                {% if produit.tag == tagGet %}
+
+                        <div class="article">
+                            <div class="article" href="{{ produit.reference }}">
+                                <img src="{{ produit.photo }}"/>
+                                <p class="titrearticle">{{ produit.nom }}</p>
+                                <p class="prix">{{ produit.prix }}</p>
+                                <p class="prix">{{ produit.tag }}</p>
+                            </div>
+                        </div>
+
+                {% endif %}
+
+                {% endfor %}
+                </div>
+    </div>
+        {% endfor %}
+
+
+{% endblock %}
