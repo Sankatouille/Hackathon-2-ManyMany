@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Produit;
 use App\Form\ProduitType;
 use App\Repository\ProduitRepository;
+use App\Form\SearchBarType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -17,11 +18,9 @@ use Goutte\Client;
 class ProduitController extends AbstractController
 {
     #[Route('/', name: 'produit_index', methods: ['GET'])]
-    public function index(ProduitRepository $produitRepository): Response
+    public function index(request $request, ProduitRepository $produitRepository): Response
     {
-        return $this->render('produit/index.html.twig', [
-            'produits' => $produitRepository->findAll(),
-        ]);
+        return $this->render('produit/index.html.twig');
     }
 
     #[Route('/new', name: 'produit_new', methods: ['GET', 'POST'])]
