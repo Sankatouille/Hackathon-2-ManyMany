@@ -59,11 +59,30 @@ class ProduitController extends AbstractController
 
         $result = [];
         $crawler -> filter ('li > a.Hub_link__HJZxy')-> each (function ($node) use (&$result){
-            $result[$node -> text()] = $node -> attr('href');
+            $result[] = [
+                'title' => $node -> text(),
+                'url' => $node -> attr('href')];
         });
-        // dd($result);
         return $this->render('produit/show.html.twig', [
             'result' => $result,
+            'produit' => $produit,
+        ]);
+    }
+
+    #[Route('/{id}/comparatif', name: 'comparatif_produit', methods: ['GET','POST'])]
+    public function getComparatifProduit(Produit $produit){
+        $client = new Client();
+        $crawler = $client->request('GET', 'https://www.manomano.fr/nos-comparatifs');
+
+        $comparatifs = [];
+        $crawler -> filter ('li > a.Hub_link__HJZxy')-> each (function ($node) use (&$comparatifs){
+            $comparatifs[] = [
+                'title' => $node -> text(),
+                'url' => $node -> attr('href')];
+        });
+        dd($comparatifs);
+        return $this->render('produit/show.html.twig', [
+            'comparatif' => $comparatifs,
             'produit' => $produit,
         ]);
     }
