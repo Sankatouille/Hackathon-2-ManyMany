@@ -6,35 +6,69 @@
 
     <h1>Salle de bain - Les {{ categorie.nom }}</h1>
 
-    <div class="tags">
-        <div class="btnTags" value="Matériaux">
-             <a href="">Matériaux</a>
+        <div class="tags">
+            <div class="btnTags" value="Matériaux">
+                <a href="">Matériaux</a>
+            </div>
+
+            <div class="btnTags" value="Outils">
+                <a href="">Outils</a>
+            </div>
+
+            <div class="btnTags" value="Aménagement">
+                <a href="">Aménagement</a>
+            </div>
         </div>
 
-        <div class="btnTags" value="Outils">
-             <a href="">Outils</a>
-        </div>
+        <div class="contenant">
 
-        <div class="btnTags" value="Aménagement">
-            <a href="">Aménagement</a>
-        </div>
-    </div>
+            <div class="left">
+                <h3>Bloc Filtres</h3>
+                    <div class="">
 
-    <div class="contenant">
-        <div class="souscategories">
-
-            {% for sc in categorie.sousCategorie %}
-
-                <div class="sousCategorie"><h3>{{ sc.nom }}</h3></div>
-                    <div class="produits">
-                        {% for produit in sc.produit|slice (1, 5) %}
-                            <div class="produit">{{ produit.nom }}</div>
-                        {% endfor %}
                     </div>
 
-                {% endfor %}
+                    <div class="">
+
+                    </div>
+
+                    <div class="">
+
+                    </div>
+            </div>
+
+            <div class="souscategories">
+
+                {% for sc in categorie.sousCategorie %}
+
+                    <div class="sousCategorie"><h3>{{ sc.nom }}</h3></div>
+                        <div class="produits">
+                            {% for produit in sc.produit|slice (1, 5) %}
+                                <div class="produit">{{ produit.nom }}</div>
+                            {% endfor %}
+                        </div>
+
+                    {% endfor %}
+
+            </div>
+
+            <div class="right">
+                <h3>Bloc Conseil</h3>
+                    <div class="">
+
+                    </div>
+
+                    <div class="">
+
+                    </div>
+
+                    <div class="">
+
+                    </div>
+            </div>
         </div>
     </div>
+
 
     <center>
         <div class="btn">
