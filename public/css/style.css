@@ -144,18 +144,9 @@ h3 {
     align-items: center;
 }
 
-/* .conteneur-maison img {
-    padding-top: 10%;
-} */
-
 .logo {
     width: 300px;
 }
-
-/* .textes-home {
-    width: 38%;
-    margin: 50px 0 0 10%;
-} */
 
 .titre-home{
     margin-top: 10%;
@@ -249,3 +240,10 @@ h3 {
       opacity: 0;
     }
   }
+
+.contenant-piece {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height:70vh;
+}
