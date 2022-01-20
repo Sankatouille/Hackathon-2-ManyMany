@@ -2,10 +2,15 @@
 
 namespace App\Controller;
 
-use App\Entity\Piece;
+
 use App\Entity\Produit;
 use App\Entity\Categorie;
+use App\Form\ProduitType;
+use App\Form\SearchBarType;
+use App\Entity\Piece;
 use App\Form\CategorieType;
+use App\Entity\SousCategorie;
+use App\Repository\ProduitRepository;
 use App\Repository\CategorieRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -44,10 +49,22 @@ class CategorieController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'categorie_show', methods: ['GET'])]
-    public function show(Categorie $categorie): Response
+    #[Route('/{id}', name: 'categorie_show', methods: ['GET', 'POST'])]
+    public function show(Request $request, Categorie $categorie, ProduitRepository $produitRepository): Response
     {
+        $form = $this->createForm(SearchBarType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $search = $form->getData()['search'];
+            $produits = $produitRepository->findLikeName($search);
+        } else {
+            $produits = $produitRepository->findAll();
+        }
+
         return $this->render('categorie/show.html.twig', [
+            'produits' => $produits,
+            'form' => $form->createView(),
             'categorie' => $categorie,
         ]);
     }

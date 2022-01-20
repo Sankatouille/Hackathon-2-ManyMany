@@ -4,6 +4,16 @@
 
 {% block body %}
 
+    <div class="searchbar">
+        {{ form_start(form) }}
+        {{ form_widget(form.search) }}
+        {{ form_help(form.search) }}
+        {{ form_errors(form.search) }}
+        <button id="search" class="btn-primary"><i class="fas fa-search"></i></button>
+        {{ form_end(form) }}
+    </div>
+
+
     <h1>Salle de bain - Les {{ categorie.nom }}</h1>
 
         <div class="tags">
@@ -47,6 +57,10 @@
                                 <div class="produit">{{ produit.nom }}</div>
                             {% endfor %}
                         </div>
+
+
+                    {% for produit in produits %}
+                        <div class="produit">{{ produit.nom }}</div>
 
                     {% endfor %}
 
