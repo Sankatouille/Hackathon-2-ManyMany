@@ -18,20 +18,7 @@ class ProduitController extends AbstractController
     #[Route('/', name: 'produit_index', methods: ['GET'])]
     public function index(request $request, ProduitRepository $produitRepository): Response
     {
-        // $form = $this->createForm(SearchBarType::class);
-        // $form->handleRequest($request);
-
-        // if ($form->isSubmitted() && $form->isValid()) {
-        //     $search = $form->getData()['search'];
-        //     $produits = $produitRepository->findLikeName($search);
-        // } else {
-        //     $produits = $produitRepository->findAll();
-        // }
-
-        // return $this->render('categorie/show.html.twig', [
-        //     'produits' => $produits,
-        //     'form' => $form->createView(),
-        // ]);
+        return $this->render('produit/index.html.twig');
     }
 
     #[Route('/new', name: 'produit_new', methods: ['GET', 'POST'])]

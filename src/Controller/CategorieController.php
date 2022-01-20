@@ -47,8 +47,8 @@ class CategorieController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}', name: 'categorie_show', methods: ['GET'])]
-    public function show(Categorie $categorie, ProduitRepository $produitRepository): Response
+    #[Route('/{id}', name: 'categorie_show', methods: ['GET', 'POST'])]
+    public function show(Request $request, Categorie $categorie, ProduitRepository $produitRepository): Response
     {
         $form = $this->createForm(SearchBarType::class);
         $form->handleRequest($request);
