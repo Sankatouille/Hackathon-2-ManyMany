@@ -10,6 +10,7 @@ use Doctrine\Common\DataFixtures\DependentFixtureInterface;
 class SousCategorieFixtures extends Fixture implements DependentFixtureInterface
 {
     public const SOUSCATEGORIES = [
+
         ["Nom" => "Sol PVC et Vinyle",
         "Reference" => "categorie_0"],
         ["Nom" => "Carrelage",
@@ -73,6 +74,7 @@ class SousCategorieFixtures extends Fixture implements DependentFixtureInterface
 
 
 
+
     ];
 
     public function load(ObjectManager $manager): void
@@ -92,7 +94,7 @@ class SousCategorieFixtures extends Fixture implements DependentFixtureInterface
     public function getDependencies()
     {
         return [
-          CategorieFixtures::class,
+            CategorieFixtures::class,
         ];
     }
 }
