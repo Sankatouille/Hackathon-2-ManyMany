@@ -2,15 +2,22 @@
 
 {% block body %}
 
-
 <div class="logo">
-    <a  href=""><img class="logo" src="" alt="Logo de ManoMano"></a>
+    <a href="{{ path('home') }}">
+        <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/1/1c/ManoMano_2018.png" alt="Logo de ManoMano">
+    </a>
 </div>
 
-<h1>Faites les bons choix et trouvez les produits qui vous conviennent </h1>
-<h2>Rénovation de la cuisine, bricolage dans le jardin, aménagement d'une chambre ...</h2>
+    <div class="textes-home">
+        <h1 class="titre-home">Faites les bons choix et trouvez les produits qui vous conviennent </h1>
+            <h3>Rénovation de la cuisine, bricolage dans le jardin, aménagement d'une chambre ...</h3>
+                <h3 class="btn-home">Quelles pièces souhaitez-vous rénover ?*</h3>
+                    <p class="asterisque">*Cliquez sur la pièce correspondante</p>
+    </div>
 
-<img usemap="#maison"  src="https://images-ext-1.discordapp.net/external/kj_3ZZ4oM2JYhdYAzVGtLk6eB8xAAMEvl5NOHIbjCMs/https/fac.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2FFAC.2Fvar.2Ffemmeactuelle.2Fstorage.2Fimages.2Fdeco.2Fmaison-pratique.2Fconseils-aeration-maison-piece-par-piece-33684.2F14281426-3-fre-FR.2Fnos-conseils-pour-l-aeration-de-la-maison-piece-par-piece.2Ejpg/850x478/quality/90/crop-from/center/nos-conseils-pour-l-aeration-de-la-maison-piece-par-piece.jpeg" alt="Maison">
+    <div id="btn-cuisine"><a href=""></a></div>
+
+<img usemap="#maison" id="maison-home" class="maison-home" src="https://images-ext-1.discordapp.net/external/kj_3ZZ4oM2JYhdYAzVGtLk6eB8xAAMEvl5NOHIbjCMs/https/fac.img.pmdstatic.net/fit/http.3A.2F.2Fprd2-bone-image.2Es3-website-eu-west-1.2Eamazonaws.2Ecom.2FFAC.2Fvar.2Ffemmeactuelle.2Fstorage.2Fimages.2Fdeco.2Fmaison-pratique.2Fconseils-aeration-maison-piece-par-piece-33684.2F14281426-3-fre-FR.2Fnos-conseils-pour-l-aeration-de-la-maison-piece-par-piece.2Ejpg/850x478/quality/90/crop-from/center/nos-conseils-pour-l-aeration-de-la-maison-piece-par-piece.jpeg" alt="Maison">
 <map name="maison">
 
     {# Bureau #}
@@ -22,7 +29,7 @@
         rel="nofollow noreferrer noopener"
         title="Entrer dans le bureau "
     />
-    
+
     {# Chambre 1 #}
     <area
         shape="rect"
@@ -32,7 +39,7 @@
         rel="nofollow noreferrer noopener"
         title="Entrer dans la chambre 1 "
     />
-    
+
     {# Chambre 2 #}
     <area
         shape="rect"
@@ -42,7 +49,7 @@
         rel="nofollow noreferrer noopener"
         title="Entrer dans la chambre 2 "
     />
-    
+
     {# Salle de bain #}
     <area
         shape="rect"
@@ -104,6 +111,6 @@
     />
 
 </map>
-    
+
 
 {% endblock %}
