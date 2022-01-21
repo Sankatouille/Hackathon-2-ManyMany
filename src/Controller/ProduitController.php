@@ -45,14 +45,15 @@ class ProduitController extends AbstractController
 
     #[Route('/{id}/conseil', name: 'conseils_produit', methods: ['GET','POST'])]
     public function getConseilsProduit(Produit $produit,  string $id){
+
         $client = new Client();
         $crawler = $client->request('GET', 'https://www.manomano.fr/nos-conseils');
 
         $results = [];
-        $crawler -> filter ('li > a.Hub_link__HJZxy')-> each (function ($node) use (&$results){
+        $crawler->filter('li > a.Hub_link__HJZxy')->each(function ($node) use (&$results) {
             $results[] = [
-                "title" => $node -> text(),
-                "url" => $node -> attr('href')
+                "title" => $node->text(),
+                "url" => $node->attr('href')
             ];
         });
 
@@ -86,8 +87,8 @@ class ProduitController extends AbstractController
 
         foreach ($tableCorrespondance as $key => $value) {
 
-            if ( $id == $value) {
-                array_push( $motsClesParId, $key);
+            if ($id == $value) {
+                array_push($motsClesParId, $key);
             };
         }
 
@@ -96,10 +97,10 @@ class ProduitController extends AbstractController
 
         foreach ($motsClesParId as $motCle) {
 
-            foreach($results as $result) {
+            foreach ($results as $result) {
                 // cherche dans le titre les valeurs correspondantes
-                if (str_contains($result['title'], $motCle)){
-                    array_push( $tousArticlesFiltres, ["title"=>$result['title'], "url"=>$result['url']]);
+                if (str_contains($result['title'], $motCle)) {
+                    array_push($tousArticlesFiltres, ["title" => $result['title'], "url" => $result['url']]);
                 };
             }
         }
@@ -107,7 +108,7 @@ class ProduitController extends AbstractController
         // retourner 4 valeurs aléatoires
         $articlesRandoms = [];
 
-        for ($i=0; $i<4; $i++) {
+        for ($i = 0; $i < 4; $i++) {
             $articleRandomId = array_rand($tousArticlesFiltres);
             array_push($articlesRandoms, $tousArticlesFiltres[$articleRandomId]);
         }
@@ -119,7 +120,6 @@ class ProduitController extends AbstractController
         ]);
     }
 
-
   #[Route('/{id}', name: 'produit_show', methods: ['GET'])]
     public function show(Produit $produit): Response
     {
@@ -127,10 +127,11 @@ class ProduitController extends AbstractController
         $crawler = $client->request('GET', 'https://www.manomano.fr/nos-conseils');
 
         $result = [];
-        $crawler -> filter ('li > a.Hub_link__HJZxy')-> each (function ($node) use (&$result){
+        $crawler->filter('li > a.Hub_link__HJZxy')->each(function ($node) use (&$result) {
             $result[] = [
-                'title' => $node -> text(),
-                'url' => $node -> attr('href')];
+                'title' => $node->text(),
+                'url' => $node->attr('href')
+            ];
         });
         return $this->render('produit/show.html.twig', [
             'result' => $result,
@@ -138,16 +139,18 @@ class ProduitController extends AbstractController
         ]);
     }
 
-    #[Route('/{id}/comparatif', name: 'comparatif_produit', methods: ['GET','POST'])]
-    public function getComparatifProduit(Produit $produit){
+    #[Route('/{id}/comparatif', name: 'comparatif_produit', methods: ['GET', 'POST'])]
+    public function getComparatifProduit(Produit $produit)
+    {
         $client = new Client();
         $crawler = $client->request('GET', 'https://www.manomano.fr/nos-comparatifs');
 
         $comparatifs = [];
-        $crawler -> filter ('li > a.Hub_link__HJZxy')-> each (function ($node) use (&$comparatifs){
+        $crawler->filter('li > a.Hub_link__HJZxy')->each(function ($node) use (&$comparatifs) {
             $comparatifs[] = [
-                'title' => $node -> text(),
-                'url' => $node -> attr('href')];
+                'title' => $node->text(),
+                'url' => $node->attr('href')
+            ];
         });
         dd($comparatifs);
         return $this->render('produit/show.html.twig', [
