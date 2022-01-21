@@ -4,13 +4,31 @@
 
 
 <div class="logo">
-    <a  href=""><img class="logo" src="" alt="Logo de ManoMano"></a>
+    <a  href="{{ path('home') }}"><img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/1/1c/ManoMano_2018.png" alt="Logo de ManoMano"></a>
 </div>
+<div class="contenant-home">
 
-<h1>Faites les bons choix et trouvez les produits qui vous conviennent </h1>
-<h2>Rénovation de la cuisine, bricolage dans le jardin, aménagement d'une chambre ...</h2>
+      <div class="conteneur-home-texte">
+        <div class="textes-home">
+            <h1 class="titre-home">Faites les bons choix et trouvez les produits qui vous conviennent </h1>
+                <h3>Rénovation de la cuisine, bricolage dans le jardin, aménagement d'une chambre ...</h3>
+        </div>
+    </div>
 
-<img src="https://www.360m2.fr/sites/default/files/styles/image-couverture/public/garage.jpg?itok=ra7Nqgr_">
+<div class="conteneur-maison">
+    <a href="https://google.com"><div id="btn-sols-gar"></div></a>
+    <a href="https://google.com"><div id="btn-robinetterie-gar"></div></a>
+    <a href="https://google.com"><div id="btn-murs-gar"></div></a>
+    <a href="https://google.com"><div id="btn-eclairage-gar"></div></a>
+    <a href="https://google.com"><div id="btn-quincaillerie-gar"></div></a>
+    <a href="https://google.com"><div id="btn-meublerangement-gar"></div></a>
 
+<img class="imggarage"src="https://www.360m2.fr/sites/default/files/styles/image-couverture/public/garage.jpg?itok=ra7Nqgr_">
 
+        <map name="maison" id="maison">
+
+         <h3 class="btn-home">Quelles pièces souhaitez-vous rénover ? *</h3>
+            <p class="asterisque">*Cliquez sur la pièce correspondante</p>
+    </div>
+</div>
 {% endblock %}

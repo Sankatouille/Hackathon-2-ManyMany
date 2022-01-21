@@ -181,8 +181,15 @@ h3 {
     width: 400px;
 }
 
+
 .asterisque {
     font-size: 10px;
+}
+
+.imggarage{
+    top:-15%;
+    height:400px;
+    width: 700px;
 }
 
 /* Boutons homepage et pièces */
@@ -190,7 +197,8 @@ h3 {
 #btn-sdb, #btn-salon, #btn-bureau, #btn-chambre, #btn-cuisine,
 #btn-chambre2, #btn-buanderie, #btn-terrasse,
 #btn-sols,#btn-robinetterie,#btn-murs,#btn-eclairage,#btn-quincaillerie,#btn-meublerangement,
-#btn-sols-chbre1,#btn-murs-chbre1,#btn-eclairage-chbre1,#btn-meublerangement-chbre1{
+#btn-sols-chbre1,#btn-murs-chbre1,#btn-eclairage-chbre1,#btn-meublerangement-chbre1,
+#btn-sols-salon,#btn-murs-salon,#btn-eclairage-salon,#btn-meublerangement-salon{
     height: 1em;
     width: 1em;
     background-color: #00398A;
@@ -286,12 +294,33 @@ h3 {
     bottom: -10em;
     left:-10em;
 }
+/* PIECE SALON */
+#btn-sols-salon{
+    bottom:-18em;
+    left:-8em;
+}
+
+#btn-murs-salon{
+    bottom:2em;
+    left:18em;
+}
+
+#btn-eclairage-salon{
+    bottom:-1.5em;
+    left:-5em;
+}
+
+#btn-meublerangement-salon{
+    bottom:2em;
+    right:-14em;
+}
 
 #btn-sdb:hover, #btn-salon:hover, #btn-bureau:hover,
 #btn-chambre:hover, #btn-chambre2:hover, #btn-buanderie:hover,
 #btn-terrasse:hover,#btn-sols:hover,#btn-robinetterie:hover,#btn-murs:hover,
 #btn-eclairage:hover,#btn-quincaillerie:hover,#btn-meublerangement:hover,
-#btn-sols-chbre1:hover,#btn-murs-chbre1:hover,#btn-eclairage-chbre1:hover,#btn-meublerangement-chbre1:hover{
+#btn-sols-chbre1:hover,#btn-murs-chbre1:hover,#btn-eclairage-chbre1:hover,#btn-meublerangement-chbre1:hover,
+#btn-sols-salon:hover,#btn-murs-salon:hover,#btn-eclairage-salon:hover,#btn-meublerangement-salon:hover,#btn-eclairage-salon:hover{
     background-color:#dbbdb3;
     transition: all 1s ease-in;
     transform: scale(1.8);
