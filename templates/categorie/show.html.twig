@@ -3,18 +3,10 @@
 {% block title %}Categorie{% endblock %}
 
 {% block body %}
-
-    <div class="searchbar">
-        {{ form_start(form) }}
-        {{ form_widget(form.search) }}
-        {{ form_help(form.search) }}
-        {{ form_errors(form.search) }}
-        <button id="search" class="btn-primary"><i class="fas fa-search"></i></button>
-        {{ form_end(form) }}
-    </div>
-
+<div class="bodyShow">
 
     <h1>Salle de bain - Les {{ categorie.nom }}</h1>
+
 
         <div class="tags">
             <div class="btnTags" value="Matériaux">
@@ -30,10 +22,19 @@
             </div>
         </div>
 
+        <div class="searchbar">
+            {{ form_start(form) }}
+            {{ form_widget(form.search) }}
+            {{ form_help(form.search) }}
+            {{ form_errors(form.search) }}
+            <button id="search" class="btn-primary"><i class="fas fa-search"></i></button>
+            {{ form_end(form) }}
+        </div>
+
         <div class="contenant">
 
             <div class="left">
-                <h3>Bloc Filtres</h3>
+                <h2>Bloc Filtres</h2>
                     <div class="">
 
                     </div>
@@ -51,23 +52,24 @@
 
                 {% for sc in categorie.sousCategorie %}
 
-                    <div class="sousCategorie"><h3>{{ sc.nom }}</h3></div>
-                        <div class="produits">
-                            {% for produit in sc.produit|slice (1, 5) %}
-                                <div class="produit">{{ produit.nom }}</div>
-                            {% endfor %}
-                        </div>
+                    <div class="sousCategorie">
+                        <h2>{{ sc.nom }}</h2>
+                    </div>
 
-
-                    {% for produit in produits %}
-                        <div class="produit">{{ produit.nom }}</div>
-
-                    {% endfor %}
+                    <div class="produits">
+                        {% for produit in sc.produit|slice (1, 5) %}
+                            <div class="produit">
+                                <p><img src="{{produit.photo}}" alt="imageproduit"></p>
+                                <p id="produitNom">{{ produit.nom }}</p>
+                                <p id="produitPrix">{{ produit.prix }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
                 {% endfor %}
             </div>
 
             <div class="right">
-                <h3>Bloc Conseil</h3>
+                <h2>Bloc Conseil</h2>
                     <div class="">
 
                     </div>
@@ -89,5 +91,5 @@
             <a href="{{ path('categorie_index') }}">Retour</a>
         </div>
     </center>
-
+</div>
 {% endblock %}
