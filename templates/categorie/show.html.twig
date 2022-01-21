@@ -75,7 +75,10 @@
             <div class="right">
                 <h2>Bloc Conseil</h2>
                     <div class="">
-
+                        {% for article in articles %}
+                            <h4><a href="{{ article.url }}">{{ article.title }}</a></h4>
+                            <br>
+                        {% endfor %}
                     </div>
 
                     <div class="">
