@@ -17,15 +17,15 @@
 
         <div class="tags">
             <div class="btnTags" value="Matériaux">
-                <a href="">Matériaux</a>
+                <a href="{{ path('tag_show', {'id': categorie.id, 'tag' :0}) }}">Matériaux</a>
             </div>
 
             <div class="btnTags" value="Outils">
-                <a href="">Outils</a>
+                <a href="{{ path('tag_show', {'id': categorie.id, 'tag' :1}) }}">Outils</a>
             </div>
 
             <div class="btnTags" value="Aménagement">
-                <a href="">Aménagement</a>
+                <a href="{{ path('tag_show', {'id': categorie.id, 'tag' :2}) }}">Aménagement</a>
             </div>
         </div>
 
@@ -85,6 +85,7 @@
                     </div>
 
             </div>
+
 
             <div class="right">
                 <h2>Bloc Conseil</h2>

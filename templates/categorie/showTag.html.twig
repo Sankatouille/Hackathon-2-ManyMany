@@ -1,36 +1,57 @@
 {% extends 'base.html.twig' %}
+
 {% block title %}Categorie{% endblock %}
 
 {% block body %}
+<div class="bodyShow">
 
-<div class="blocchoix">
-
-    <div class="catégorie">
-        <img src"" alt="picto">
-        <p>Matériaux</p>
-    </div>
-
-    <div class="catégorie">
-        <img src"" alt="picto">
-        <p>Outils</p>
-    </div>
-
-    <div class="catégorie">
-        <img src"" alt="picto">
-        <p>Ameublement et décoration</p>
-    </div>
-
-</div>
-
-<div class="blocfiltres">
-    <img src="" alt="capture d'écran des filtres site ManoMano">
-</div>
+    <h1>Salle de bain - Les {{ categorie.nom }}</h1>
 
 
-<div class="blocproduits">
+        <div class="tags">
+            <div class="btnTags" value="Matériaux">
+                <a href="{{ path('tag_show', {'id': categorie.id, 'tag' :0}) }}">Matériaux</a>
+            </div>
 
-    <div class="searchbar">
-    </div>
+            <div class="btnTags" value="Outils">
+                <a href="{{ path('tag_show', {'id': categorie.id, 'tag' :1}) }}">Outils</a>
+            </div>
+
+            <div class="btnTags" value="Aménagement">
+                <a href="{{ path('tag_show', {'id': categorie.id, 'tag' :2}) }}">Aménagement</a>
+            </div>
+        </div>
+
+
+        <center>
+            <div class="btn-categories"> <a href="{{ path('categorie_index') }}">Parcourez d'autres catégories</a></div>
+        </center>
+
+        <div class="searchbar">
+            {{ form_start(form) }}
+            {{ form_widget(form.search) }}
+            {{ form_help(form.search) }}
+            {{ form_errors(form.search) }}
+            <button id="search" class="btn-primary"><i class="fas fa-search"></i></button>
+            {{ form_end(form) }}
+        </div>
+
+        <div class="contenant">
+
+            <div class="left">
+                <h2>Bloc Filtres</h2>
+                    <div class="">
+
+                    </div>
+
+                    <div class="">
+
+                    </div>
+
+                    <div class="">
+
+                    </div>
+            </div>
 
 
     <div class="produits">
@@ -56,8 +77,32 @@
 
                 {% endfor %}
                 </div>
+        </div>
     </div>
         {% endfor %}
 
+            <div class="right">
+                <h2>Bloc Conseil</h2>
+                    <div class="">
 
+                    </div>
+
+                    <div class="">
+
+                    </div>
+
+                    <div class="">
+
+                    </div>
+            </div>
+        </div>
+    </div>
+
+
+    <center>
+        <div class="btn">
+            <a href="{{ path('categorie_index') }}">Retour</a>
+        </div>
+    </center>
+</div>
 {% endblock %}
