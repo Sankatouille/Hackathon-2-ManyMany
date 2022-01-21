@@ -3,24 +3,37 @@
     margin: 0px;
 }
 
+.bodyShow {
+    background-color: rgb(243, 243, 243);
+}
+
+.searchbar{
+    display:flex;
+    justify-content: center;
+    width:100%;
+}
+
 .left {
-    border-radius: 0.8%;
+    border-radius: 0.4%;
     box-shadow: 0px 2px 4px 0px #7B7B7B;
     width:15%;
     text-align:center;
+    margin:1%;
+    padding:0.5%;
 }
 
 .right {
-    border-radius: 0.8%;
+    border-radius: 0.4%;
     box-shadow: 0px 2px 4px 0px #7B7B7B;
     width:15%;
     text-align:center;
+    margin:1%;
+    padding:0.5%;
 }
 
 .souscategories {
     width:70%;
 }
-
 
 .contenant {
     display: flex;
@@ -43,8 +56,37 @@
     text-align:center;
     border-radius: 2%;
     box-shadow: 0px 2px 4px 0px #7B7B7B;
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 220px;
+    font-size: 12px;
+    background-color: rgb(255, 255, 255);;
+}
+
+.produit:hover{
+    cursor: pointer;
+    box-shadow: 0px 2px 4px 2px #7B7B7B;
+}
+
+.produit img {
+    position:center;
+    object-fit:cover;
+    height:70%;
+    width:70%;
+    background-image: cover;
+    border-radius: 1%;
+    margin:3%;
+    margin-top:6%;
+}
+
+#produitPrix{
+    text-align: start;
+    font-weight:bold;
+    margin-left: 7%;
+}
+
+#produitNom {
+    text-align:start;
+    margin-left: 7%;
 }
 
 .btn {
@@ -95,16 +137,18 @@ padding:2%;
 gap:5%;
 }
 
-html {
+.home {
     background-image: url("/img/blurry-gradient-haikei.png");
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    color : #00398A;
-
-    font-family: 'Open Sans', sans-serif;
     z-index: -10;
+}
+
+html{
+    color : #00398A;
+    font-family: 'Open Sans', sans-serif;
 }
 
 h1 {
@@ -187,6 +231,37 @@ h3 {
     animation: shadow 1s infinite ease;
 }
 
+#btn-sdb {
+    bottom: -600px;
+    margin-left: 52%;
+}
+
+#btn-salon {
+    bottom: -600px;
+    margin-left: 35%;
+}
+
+#btn-bureau {
+    bottom: -450px;
+    margin-left: 37%;
+}
+
+#btn-chambre {
+    bottom: -400px;
+    margin-left: 50%;
+}
+
+#btn-cuisine {
+    bottom: -640px;
+    margin-left: 50%;
+}
+
+#btn-chambre2 {
+    bottom: -640px;
+    margin-left: 35%;
+}
+
+#btn-sdb:hover, #btn-salon:hover, #btn-bureau:hover, #btn-chambre:hover, #btn-chambre2:hover {
 #btn-bureau {
     bottom: -16em;
     left: -6em;
@@ -240,7 +315,6 @@ h3 {
       opacity: 0;
     }
   }
-
 .contenant-piece {
     display: flex;
     flex-direction: row;
