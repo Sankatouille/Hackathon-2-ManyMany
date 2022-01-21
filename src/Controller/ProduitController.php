@@ -43,30 +43,9 @@ class ProduitController extends AbstractController
         ]);
     }
 
-    // #[Route('/{id}/conseil', name: 'conseils_produit', methods: ['GET', 'POST'])]
-    // public function getConseilsProduit(Produit $produit)
-    // {
-    //     $client = new Client();
-    //     $crawler = $client->request('GET', 'https://www.manomano.fr/nos-conseils');
+    #[Route('/{id}/conseil', name: 'conseils_produit', methods: ['GET','POST'])]
+    public function getConseilsProduit(Produit $produit,  string $id){
 
-    //     $result = [];
-    //     $crawler->filter('li > a.Hub_link__HJZxy')->each(function ($node) use (&$result) {
-    //         $result[] = [
-    //             'title' => $node->text(),
-    //             'url' => $node->attr('href')
-    //         ];
-    //     });
-
-    //     return $this->render('produit/show.html.twig', [
-    //         'result' => $result,
-    //         'produit' => $produit,
-    //     ]);
-    // }
-
-
-    #[Route('/{id}/conseil', name: 'conseils_produit', methods: ['GET', 'POST'])]
-    public function getConseilsProduit(Produit $produit,  string $id)
-    {
         $client = new Client();
         $crawler = $client->request('GET', 'https://www.manomano.fr/nos-conseils');
 
@@ -141,8 +120,7 @@ class ProduitController extends AbstractController
         ]);
     }
 
-
-    #[Route('/{id}', name: 'produit_show', methods: ['GET'])]
+  #[Route('/{id}', name: 'produit_show', methods: ['GET'])]
     public function show(Produit $produit): Response
     {
         $client = new Client();
