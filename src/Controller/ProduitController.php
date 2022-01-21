@@ -96,4 +96,88 @@ class ProduitController extends AbstractController
 
         return $this->redirectToRoute('produit_index', [], Response::HTTP_SEE_OTHER);
     }
+
+    // #[Route('/{id}/comparatif', name: 'comparatif_produit', methods: ['GET','POST'])]
+    // public function getComparatifProduit(Produit $produit){
+    //     $client = new Client();
+    //     $crawler = $client->request('GET', 'https://www.manomano.fr/nos-comparatifs%27');
+
+    //     $comparatifs = [];
+    //     $crawler -> filter ('li > a.Hub_link__HJZxy')-> each (function ($node) use (&$comparatifs){
+    //         $comparatifs[] = [
+    //             'title' => $node -> text(),
+    //             'url' => $node -> attr('href')];
+    //     });
+    //     $tableCorrespondanceConseils = [
+    //         "crédence" => "1",
+    //         "carrelage" => "1",
+    //         "carreleur" => "1",
+    //         "sols" => "1",
+    //         "joints de carrelage" => "1",
+    //         "étanchéité" => "2",
+    //         "bains" => "2",
+    //         "Baignoire" => "2",
+    //         "baignoire" => "2",
+    //         "spa" => "2",
+    //         "spas" => "2",
+    //         "bains" => "2",
+    //         "douche" => "2",
+    //         "lavabo" => "2",
+    //         "lave-main" => "3",
+    //         "canalisation" => "3",
+    //         "joint" => "3",
+    //         "murs" => "4",
+    //         "porte coulissante" => "4",
+    //         "salle de bains" => "4",
+    //         "spots" => "5",
+    //     ];
+    //     $tableCorrespondanceComparatifs = [
+    //         "carrelage" => "1",
+    //         "carreleur" => "1",
+    //         "sols" => "1",
+    //         "joints de carrelage" => "1",
+    //         "étanchéité" => "2",
+    //         "bains" => "2",
+    //         "Baignoire" => "2",
+    //         "baignoire" => "2",
+    //         "spa" => "2",
+    //         "spas" => "2",
+    //         "bains" => "2",
+    //         "bains" => "2",
+    //         "hammam" => "2",
+    //         "douche" => "2",
+    //         "lavabo" => "2",
+    //         "sauna" => "2",
+    //         "vasque" => "2",
+    //         "pommeau" => "2",
+    //         "rideau"=>"2",
+    //         "siphon"=>"2",
+    //         "mains"=>"2",
+    //         "canalisation" => "3",
+    //         "joint" => "3",
+    //         "lave-main" => "3",
+    //         "murs" => "4",
+    //         "porte coulissante" => "4",
+    //         "salle de bains" => "4",
+    //         "spots" => "5",
+    //         "colonne"=>"7",
+    //         "plan de travail"=>"7",
+    //         "porte-serviette"=>"7",
+    //         "serviette"=>"7",
+    //         "porte"=>"7",
+    //         "panier"=>"7",
+    //         "seche main"=>"7",
+    //         "tapis"=>"7",
+    //         "etendoire"=>"7",
+    //         "etagere"=>"7",
+    //         "fixation"=>"7",
+    //         "poubelle"=>"7",
+    //         "sèche mains"=>"7",
+    //     ];
+    //     dd($comparatifs);
+    //     return $this->render('produit/show.html.twig', [
+    //         'comparatif' => $comparatifs,
+    //         'produit' => $produit,
+    //     ]);
+    // }   
 }

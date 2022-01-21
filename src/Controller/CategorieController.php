@@ -2,15 +2,17 @@
 
 namespace App\Controller;
 
-use App\Entity\Categorie;
+use Goutte\Client;
 use App\Entity\Produit;
-use App\Entity\SousCategorie;
+use App\Entity\Categorie;
 use App\Form\CategorieType;
+use App\Entity\SousCategorie;
 use App\Repository\ProduitRepository;
 use App\Repository\CategorieRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpClient\HttpClient;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -46,15 +48,124 @@ class CategorieController extends AbstractController
     }
 
     #[Route('/{id}', name: 'categorie_show', methods: ['GET'])]
-    public function show(Categorie $categorie): Response
+    public function show(Categorie $categorie, string $id): Response
     {
+        $client = new Client();
+        $crawler = $client->request('GET', 'https://www.manomano.fr/nos-comparatifs');
+        
+        $results = [];
+        $crawler -> filter ('li > a.Hub_link__HJZxy')-> each (function ($node) use (&$results){
+            $results[] = [
+                'title' => $node -> text(),
+                'url' => $node -> attr('href')];
+            });
+
+        
+        // $tableCorrespondanceConseils = [
+        //     "crédence" => "1",
+        //     "carrelage" => "1",
+        //     "carreleur" => "1",
+        //     "sols" => "1",
+        //     "joints de carrelage" => "1",
+        //     "étanchéité" => "2",
+        //     "bains" => "2",
+        //     "Baignoire" => "2",
+        //     "baignoire" => "2",
+        //     "spa" => "2",
+        //     "spas" => "2",
+        //     "bains" => "2",
+        //     "douche" => "2",
+        //     "lavabo" => "2",
+        //     "lave-main" => "3",
+        //     "canalisation" => "3",
+        //     "joint" => "3",
+        //     "murs" => "4",
+        //     "porte coulissante" => "4",
+        //     "salle de bains" => "4",
+        //     "spots" => "5",
+        // ];
+        $tableCorrespondanceComparatifs = [
+            "carrelage" => "1",
+            "carreleur" => "1",
+            "sols" => "1",
+            "joints de carrelage" => "1",
+            "étanchéité" => "2",
+            "bains" => "2",
+            "Baignoire" => "2",
+            "baignoire" => "2",
+            "spa" => "2",
+            "spas" => "2",
+            "bains" => "2",
+            "bains" => "2",
+            "hammam" => "2",
+            "douche" => "2",
+            "lavabo" => "2",
+            "sauna" => "2",
+            "vasque" => "2",
+            "pommeau" => "2",
+            "rideau"=>"2",
+            "siphon"=>"2",
+            "mains"=>"2",
+            "canalisation" => "3",
+            "joint" => "3",
+            "lave-main" => "3",
+            "murs" => "4",
+            "porte coulissante" => "4",
+            "salle de bains" => "4",
+            "spots" => "5",
+            "colonne"=>"7",
+            "plan de travail"=>"7",
+            "porte-serviette"=>"7",
+            "serviette"=>"7",
+            "porte"=>"7",
+            "panier"=>"7",
+            "seche main"=>"7",
+            "tapis"=>"7",
+            "etendoire"=>"7",
+            "etagere"=>"7",
+            "fixation"=>"7",
+            "poubelle"=>"7",
+            "sèche mains"=>"7",
+        ];
+
+        // récupération des mots clés correspondant  à l'id, stocké dans un tableau
+        $motsClesParId = [];
+
+        foreach ($tableCorrespondanceComparatifs as $key => $value) {
+
+            if ( $id == $value) {
+                array_push( $motsClesParId, $key);
+            };
+        }
+
+        // Selection des articles avec les mots clés associés à l'id
+        $tousArticlesFiltres = [];
+
+        foreach ($motsClesParId as $motCle) {
+
+            foreach($results as $result) {
+                // cherche dans le titre les valeurs correspondantes
+                if (str_contains($result['title'], $motCle)){
+                    array_push( $tousArticlesFiltres, ["title"=>$result['title'], "url"=>$result['url']]);
+                };
+            }
+        }
+        // retourner 4 valeurs aléatoires
+        $articlesRandoms = [];
+
+        for ($i=0; $i<4; $i++) {
+            $articleRandomId = array_rand($tousArticlesFiltres);
+            array_push($articlesRandoms, $tousArticlesFiltres[$articleRandomId]);
+        }
         return $this->render('categorie/show.html.twig', [
             'categorie' => $categorie,
+            'results' => $results,
+            'articles' => $articlesRandoms
         ]);
     }
 
 
-    #[Route('/{id}/{tag}', name: 'categorie_show', methods: ['GET'])]
+    #[Route('/{id}/{tag}', methods: ['GET'])]
     public function showTag(Categorie $categorie, string $tag): Response
     {
         return $this->render('categorie/showTag.html.twig', [
