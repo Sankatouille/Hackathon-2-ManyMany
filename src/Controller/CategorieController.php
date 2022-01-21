@@ -75,7 +75,7 @@ class CategorieController extends AbstractController
     // {
     //     return $this->render('categorie/showTag.html.twig', [
     //         'categorie' => $categorie,
-    //         'tagGet' => $tag
+    //         'tagGet'=> $tag
     //     ]);
     // }
 }

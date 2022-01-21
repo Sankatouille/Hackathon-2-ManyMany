@@ -2,15 +2,29 @@
 
 {% block body %}
 
+   <div class="logo">
+        <a href="{{ path('home') }}">
+            <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/1/1c/ManoMano_2018.png" alt="Logo de ManoMano">
+        </a>
+    </div>
 
-<div class="logo">
-    <a  href=""><img class="logo" src="" alt="Logo de ManoMano"></a>
+<div class="contenant-piece">
+
+    <div class="conteneur-home-texte">
+        <div class="textes-home">
+            <h1 class="titre-home">Lorem ipsum dolor sit amet, consectetur adipiscing elit. </h1>
+                            <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia pellentesque nunc, pulvinar mollis ante pretium feugiat. Integer neque odio, tincidunt in ultrices in, scelerisque et massa. </h3>
+        </div>
+    </div>
+
+    <div class="conteneur-maison">
+
+        <img usemap="#maison" id="cuisine" class="maison-home" src="https://cache.marieclaire.fr/data/photo/w1000_ci/1jv/idees-deco-salon2.jpg" alt="Cuisine">
+
+           <map name="maison" id="maison">
+
+                <p class="asterisque">*Cliquez sur la partie correspondante</p>
+    </div>
 </div>
-
-<h1>Faites les bons choix et trouvez les produits qui vous conviennent </h1>
-<h2>Rénovation de la cuisine, bricolage dans le jardin, aménagement d'une chambre ...</h2>
-
-<img src="https://cache.marieclaire.fr/data/photo/w1000_ci/1jv/idees-deco-salon2.jpg">
-
 
 {% endblock %}
