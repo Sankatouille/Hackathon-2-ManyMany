@@ -44,25 +44,6 @@ class ProduitController extends AbstractController
     }
 
     #[Route('/{id}/conseil', name: 'conseils_produit', methods: ['GET','POST'])]
-    public function getConseilsProduit(Produit $produit){
-        $client = new Client();
-        $crawler = $client->request('GET', 'https://www.manomano.fr/nos-conseils');
-
-        $result = [];
-        $crawler -> filter ('li > a.Hub_link__HJZxy')-> each (function ($node) use (&$result){
-            $result[] = [
-                'title' => $node -> text(),
-                'url' => $node -> attr('href')];
-        });
-
-        return $this->render('produit/show.html.twig', [
-            'result' => $result,
-            'produit' => $produit,
-        ]);
-    }
-
-
-    #[Route('/{id}/conseil', name: 'conseils_produit', methods: ['GET','POST'])]
     public function getConseilsProduit(Produit $produit,  string $id){
         $client = new Client();
         $crawler = $client->request('GET', 'https://www.manomano.fr/nos-conseils');
@@ -131,14 +112,14 @@ class ProduitController extends AbstractController
             array_push($articlesRandoms, $tousArticlesFiltres[$articleRandomId]);
         }
 
-      
+
         return $this->render('produit/show.html.twig', [
             'results' => $results,
             'articles' => $articlesRandoms
         ]);
     }
-  
-  
+
+
   #[Route('/{id}', name: 'produit_show', methods: ['GET'])]
     public function show(Produit $produit): Response
     {
@@ -180,7 +161,5 @@ class ProduitController extends AbstractController
     {
         $form = $this->createForm(ProduitType::class, $produit);
         $form->handleRequest($request);
-
-
-
+    }
 }

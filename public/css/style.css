@@ -5,29 +5,49 @@
 
 .bodyShow {
     background-color: rgb(243, 243, 243);
+    padding-top: 3%;
 }
 
 .searchbar{
     display:flex;
     justify-content: center;
     width:100%;
+    padding: 1.5% 0 4% 0;
+}
+
+.searchbar input {
+    width: 300px;
+    border-radius:20px;
+    border : 1px solid;
+    opacity: 30%;
+}
+
+.searchbar button {
+    border-radius:20px;
+    border : 1px solid;
+    opacity: 30%;
+
 }
 
 .left {
+    background-color: #00398A;
+    color: white;
     border-radius: 0.4%;
     box-shadow: 0px 2px 4px 0px #7B7B7B;
-    width:15%;
+    width:20%;
     text-align:center;
-    margin:1%;
+    margin-right:1%;
     padding:0.5%;
 }
 
 .right {
+    background-color: #00398A;
+    color: white;
     border-radius: 0.4%;
     box-shadow: 0px 2px 4px 0px #7B7B7B;
-    width:15%;
+    width:20%;
     text-align:center;
-    margin:1%;
+    margin-left:1%;
     padding:0.5%;
 }
 
@@ -42,22 +62,23 @@
 }
 
 .sousCategorie {
-    margin:2%;
-    padding:2%;
+    /* margin:2%; */
+    padding:0 0 2% 0;
 }
 
 .produits {
     display: flex;
-    justify-content: center;
+    justify-content:space-between;
     gap:20px;
+    margin-bottom: 4%;
 }
 
 .produit {
     text-align:center;
     border-radius: 2%;
     box-shadow: 0px 2px 4px 0px #7B7B7B;
-    width: 220px;
-    height: 220px;
+    width: 15em;
+    height: 20em;
     font-size: 12px;
     background-color: rgb(255, 255, 255);;
 }
@@ -68,14 +89,10 @@
 }
 
 .produit img {
-    position:center;
     object-fit:cover;
-    height:70%;
-    width:70%;
+    width:100%;
     background-image: cover;
     border-radius: 1%;
-    margin:3%;
-    margin-top:6%;
 }
 
 #produitPrix{
@@ -86,7 +103,7 @@
 
 #produitNom {
     text-align:start;
-    margin-left: 7%;
+    margin: 0 7%;
 }
 
 .btn {
@@ -101,7 +118,7 @@
 
 .btn a {
     text-decoration: none;
-    color:rgb(13, 24, 73);
+    color: white;
     font-weight: bold;
 }
 
@@ -114,19 +131,27 @@
     box-shadow: 0px 2px 4px 0px #7B7B7B;
     border-radius: 3%;
     width:10%;
-    padding:3%;
+    padding:15px 25px;
     background-color: rgb(56, 153, 145);
     text-align:center;
 }
 
 .btnTags a {
     text-decoration: none;
-    color:rgb(13, 24, 73);
+    color:white;
     font-weight: bold;
 }
 
 .btnTags:hover {
     background-color: rgb(64, 187, 177);
+}
+
+.btn-return {
+    padding-bottom: 4%;
+    text-align:center;
+    display: flex;
+    flex-direction:row;
+    justify-content: center;
 }
 
 .tags {
@@ -139,11 +164,13 @@ gap:5%;
 
 .home {
     background-image: url("/img/blurry-gradient-haikei.png");
-    height: 100%;
+    height: 100vh;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
     z-index: -10;
+    display: flex;
+    flex-direction:row;
 }
 
 html{
@@ -261,7 +288,7 @@ h3 {
     margin-left: 35%;
 }
 
-#btn-sdb:hover, #btn-salon:hover, #btn-bureau:hover, #btn-chambre:hover, #btn-chambre2:hover {
+#btn-sdb:hover, #btn-salon:hover, #btn-bureau:hover, #btn-chambre:hover, #btn-chambre2:hover,
 #btn-bureau {
     bottom: -16em;
     left: -6em;

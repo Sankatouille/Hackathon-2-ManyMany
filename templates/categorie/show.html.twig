@@ -3,6 +3,13 @@
 {% block title %}Categorie{% endblock %}
 
 {% block body %}
+
+   <div class="logo">
+        <a href="{{ path('home') }}">
+            <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/1/1c/ManoMano_2018.png" alt="Logo de ManoMano">
+        </a>
+    </div>
+
 <div class="bodyShow">
 
     <h1>Salle de bain - Les {{ categorie.nom }}</h1>
@@ -57,15 +64,22 @@
                     </div>
 
                     <div class="produits">
-                        {% for produit in sc.produit|slice (1, 5) %}
+                        {% for produit in sc.produit|slice (1, 4) %}
                             <div class="produit">
                                 <p><img src="{{produit.photo}}" alt="imageproduit"></p>
-                                <p id="produitNom">{{ produit.nom }}</p>
+                                <p id="produitNom">{{ produit.nom|slice(0, 40) }}...</p>
                                 <p id="produitPrix">{{ produit.prix }}</p>
                             </div>
                         {% endfor %}
                     </div>
                 {% endfor %}
+
+                    <div class="btn-return">
+                        <div class="btn">
+                            <a  href="{{ path('home') }}">Retour</a>
+                        </div>
+                    </div>
+
             </div>
 
             <div class="right">
@@ -83,13 +97,7 @@
                     </div>
             </div>
         </div>
+
     </div>
-
-
-    <center>
-        <div class="btn">
-            <a href="{{ path('categorie_index') }}">Retour</a>
-        </div>
-    </center>
 </div>
 {% endblock %}
