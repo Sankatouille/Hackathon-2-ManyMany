@@ -72,6 +72,29 @@
                 {% endfor %}
             </div>
 
+
+            {% if produit.tag == tagGet %}
+            <div class="souscategories">
+                {% for sc in categorie.sousCategorie %}
+
+                    <div class="sousCategorie">
+                        <h2>{{ sc.nom }}</h2>
+                    </div>
+
+                    <div class="produits">
+                        {% for produit in sc.produit|slice (1, 5) %}
+                            <div class="produit">
+                                <p><img src="{{produit.photo}}" alt="imageproduit"></p>
+                                <p id="produitNom">{{ produit.nom|slice (0, 40) }}[...]</p>
+                                <p id="produitPrix">{{ produit.prix }}</p>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+
             <div class="right">
                 <h2>Bloc Conseil</h2>
                     <div class="">

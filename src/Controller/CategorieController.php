@@ -50,7 +50,7 @@ class CategorieController extends AbstractController
     }
 
     #[Route('/{id}', name: 'categorie_show', methods: ['GET', 'POST'])]
-    public function show(Request $request, Categorie $categorie, ProduitRepository $produitRepository): Response
+    public function show(Request $request, Categorie $categorie, ProduitRepository $produitRepository, string $tag): Response
     {
         $form = $this->createForm(SearchBarType::class);
         $form->handleRequest($request);
@@ -66,16 +66,17 @@ class CategorieController extends AbstractController
             'produits' => $produits,
             'form' => $form->createView(),
             'categorie' => $categorie,
+            // 'tagGet' => $tag,
         ]);
     }
 
 
-    // #[Route('/{id}/{tag}', name: 'categorie_show', methods: ['GET'])]
-    // public function showTag(Categorie $categorie, string $tag): Response
-    // {
-    //     return $this->render('categorie/showTag.html.twig', [
-    //         'categorie' => $categorie,
-    //         'tagGet'=> $tag
-    //     ]);
-    // }
+    #[Route('/{id}/{tag}', name: 'tag_show', methods: ['GET'])]
+    public function showTag(Categorie $categorie, string $tag): Response
+    {
+        return $this->render('categorie/showTag.html.twig', [
+            'categorie' => $categorie,
+            'tagGet' => $tag
+        ]);
+    }
 }
