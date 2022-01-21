@@ -2,9 +2,18 @@
 
 namespace App\Controller;
 
+<<<<<<< HEAD
 use Goutte\Client;
 use App\Entity\Produit;
 use App\Entity\Categorie;
+=======
+
+use App\Entity\Produit;
+use App\Entity\Categorie;
+use App\Form\ProduitType;
+use App\Form\SearchBarType;
+use App\Entity\Piece;
+>>>>>>> 24427b7ed455e861750fa8194d1c83b28e5d1d91
 use App\Form\CategorieType;
 use App\Entity\SousCategorie;
 use App\Repository\ProduitRepository;
@@ -46,6 +55,7 @@ class CategorieController extends AbstractController
             'form' => $form,
         ]);
     }
+
 
     #[Route('/{id}', name: 'categorie_show', methods: ['GET'])]
     public function show(Categorie $categorie, string $id): Response
@@ -157,21 +167,45 @@ class CategorieController extends AbstractController
             $articleRandomId = array_rand($tousArticlesFiltres);
             array_push($articlesRandoms, $tousArticlesFiltres[$articleRandomId]);
         }
+
+        $form = $this->createForm(SearchBarType::class);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $search = $form->getData()['search'];
+            $produits = $produitRepository->findLikeName($search);
+        } else {
+            $produits = $produitRepository->findAll();
+        }
+
         return $this->render('categorie/show.html.twig', [
             'categorie' => $categorie,
+            'produits' => $produits,
+            'form' => $form->createView(),
             'results' => $results,
             'articles' => $articlesRandoms
         ]);
     }
 
 
-    #[Route('/{id}/{tag}', methods: ['GET'])]
-    public function showTag(Categorie $categorie, string $tag): Response
-    {
-        return $this->render('categorie/showTag.html.twig', [
-            'categorie' => $categorie,
-            'tagGet'=> $tag
-        ]);
-    }
+    // #[Route('/{id}/{tag}', methods: ['GET'])]
+    // public function showTag(Categorie $categorie, string $tag): Response
+    // {
+    //     return $this->render('categorie/showTag.html.twig', [
+    //     return $this->render('categorie/show.html.twig', [
+    //         'produits' => $produits,
+    //         'form' => $form->createView(),
+    //         'categorie' => $categorie,
+    //     ]);
+    // }
 
+
+    // #[Route('/{id}/{tag}', name: 'categorie_show', methods: ['GET'])]
+    // public function showTag(Categorie $categorie, string $tag): Response
+    // {
+    //     return $this->render('categorie/showTag.html.twig', [
+    //         'categorie' => $categorie,
+    //         'tagGet'=> $tag
+    //     ]);
+    // }
 }

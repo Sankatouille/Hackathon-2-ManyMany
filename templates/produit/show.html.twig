@@ -6,49 +6,14 @@
     <h1>Produit</h1>
 
     <ul>
-    {% for results in result %}
+    {% for article in articles %}
         <li>
-            <a href="{{ results }}">Conseils</a>
+
+            <a href="{{ article.url }}">{{ article.title }}</a>
+
         </li>
     {% endfor %}
     </ul>
-
-    <table class="table">
-        <tbody>
-            <tr>
-                <th>Id</th>
-                <td>{{ produit.id }}</td>
-            </tr>
-            <tr>
-                <th>Nom</th>
-                <td>{{ produit.nom }}</td>
-            </tr>
-            <tr>
-                <th>Prix</th>
-                <td>{{ produit.prix }}</td>
-            </tr>
-            <tr>
-                <th>Informations</th>
-                <td>{{ produit.informations }}</td>
-            </tr>
-            <tr>
-                <th>Marque</th>
-                <td>{{ produit.marque }}</td>
-            </tr>
-            <tr>
-                <th>Photo</th>
-                <td>{{ produit.photo }}</td>
-            </tr>
-            <tr>
-                <th>Reference</th>
-                <td>{{ produit.reference }}</td>
-            </tr>
-        </tbody>
-    </table>
-
-    <a href="{{ path('produit_index') }}">back to list</a>
-
-    <a href="{{ path('produit_edit', {'id': produit.id}) }}">edit</a>
-
-    {{ include('produit/_delete_form.html.twig') }}
 {% endblock %}
+
+

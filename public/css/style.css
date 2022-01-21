@@ -1,21 +1,54 @@
 
 * {
     margin: 0px;
-    background-color: red;
+}
+
+.bodyShow {
+    background-color: rgb(243, 243, 243);
+}
+
+.searchbar{
+    display:flex;
+    justify-content: center;
+    width:100%;
+    margin-top:3%;
+}
+
+.btn-categories a {
+    color: white;
+    background-color: #00398A;
+    padding: 15px 25px;
+    border-radius: 50px;
+    text-align: center;
+    width: 80px;
+    text-decoration: none;
+    font-size:13px;
+}
+
+.btn-categories a:hover{
+    background-color: #0e499c;
+}
+
+.btn-categories {
+    margin-top: 2%;
 }
 
 .left {
-    border-radius: 0.8%;
+    border-radius: 0.4%;
     box-shadow: 0px 2px 4px 0px #7B7B7B;
     width:15%;
     text-align:center;
+    margin:1%;
+    padding:0.5%;
 }
 
 .right {
-    border-radius: 0.8%;
+    border-radius: 0.4%;
     box-shadow: 0px 2px 4px 0px #7B7B7B;
     width:15%;
     text-align:center;
+    margin:1%;
+    padding:0.5%;
 }
 
 .souscategories {
@@ -43,8 +76,37 @@
     text-align:center;
     border-radius: 2%;
     box-shadow: 0px 2px 4px 0px #7B7B7B;
-    width: 200px;
-    height: 200px;
+    width: 220px;
+    height: 220px;
+    font-size: 12px;
+    background-color: rgb(255, 255, 255);;
+}
+
+.produit:hover{
+    cursor: pointer;
+    box-shadow: 0px 2px 4px 2px #7B7B7B;
+}
+
+.produit img {
+    position:center;
+    object-fit:cover;
+    height:70%;
+    width:70%;
+    background-image: cover;
+    border-radius: 1%;
+    margin:3%;
+    margin-top:6%;
+}
+
+#produitPrix{
+    text-align: start;
+    font-weight:bold;
+    margin-left: 7%;
+}
+
+#produitNom {
+    text-align:start;
+    margin-left: 7%;
 }
 
 .btn {
@@ -95,16 +157,18 @@ padding:2%;
 gap:5%;
 }
 
-html {
-    background-image: url("/Users/johanmabit/Desktop/FORMATIONS/WILD CODE SCHOOL/HACKATHON/MANYMANY/Hackathon-2-ManyMany/public/build/images/blurry-gradient-haikei.png");
+.home {
+    background-image: url("/img/blurry-gradient-haikei.png");
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    color : #00398A;
-
-    font-family: 'Open Sans', sans-serif;
     z-index: -10;
+}
+
+html{
+    color : #00398A;
+    font-family: 'Open Sans', sans-serif;
 }
 
 h1 {
@@ -117,25 +181,46 @@ h1 {
 h3 {
     margin-top: 30px;
     font-weight: 400;
-    font-size: 1.5em;
+    font-size: 1.2em;
+}
+
+/* CSS page home   */
+
+.contenant-home {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.conteneur-home-texte {
+    width: 40%;
+    padding-left: 5%;
+    display: flex;
+    flex-direction:column;
+    align-items: space-between;
+}
+
+.conteneur-maison{
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .logo {
     width: 300px;
-    margin-left: 5%;
 }
 
-.textes-home {
-    width: 38%;
-    margin: 50px 0 0 10%;
+.titre-home{
+    margin-top: 10%;
 }
 
 .maison-home {
-    margin: 50px 10% 0 10%;
+    margin: 0 10% 0 10%;
     width: 80%;
     z-index: 0;
     position:relative;
-
 }
 
 .btn-home {
@@ -144,16 +229,19 @@ h3 {
     padding: 15px 25px;
     border-radius: 50px;
     text-align: center;
+    width: 400px;
 }
 
 .asterisque {
     font-size: 10px;
-    margin-left: 35%;
 }
 
-#btn-sdb, #btn-salon, #btn-bureau, #btn-chambre, #btn-cuisine, #btn-chambre2 {
-    height: 20px;
-    width: 20px;
+/* Boutons homepage */
+
+#btn-sdb, #btn-salon, #btn-bureau, #btn-chambre, #btn-cuisine,
+#btn-chambre2, #btn-buanderie, #btn-terrasse{
+    height: 1em;
+    width: 1em;
     background-color: #00398A;
     border-radius: 20px;
 
@@ -194,6 +282,40 @@ h3 {
 }
 
 #btn-sdb:hover, #btn-salon:hover, #btn-bureau:hover, #btn-chambre:hover, #btn-chambre2:hover {
+    bottom: -16em;
+    left: -6em;
+}
+
+#btn-chambre {
+    bottom: -15em;
+}
+
+#btn-chambre2 {
+    bottom: -20em;
+    left: -6em;
+}
+
+#btn-sdb {
+    bottom: -19em;
+}
+
+#btn-salon {
+    bottom: -22em;
+    left: -6em;
+}
+
+#btn-cuisine {
+    bottom: -21em;
+}
+
+#btn-buanderie{
+    bottom: -16em;
+    left: 9em;
+}
+
+#btn-sdb:hover, #btn-salon:hover, #btn-bureau:hover,
+#btn-chambre:hover, #btn-chambre2:hover, #btn-buanderie:hover,
+#btn-terrasse:hover {
     background-color:#FBAA8E;
     transition: all 1s ease-in;
     transform: scale(1.8);
@@ -212,3 +334,9 @@ h3 {
       opacity: 0;
     }
   }
+.contenant-piece {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height:70vh;
+}
