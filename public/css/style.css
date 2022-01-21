@@ -11,6 +11,26 @@
     display:flex;
     justify-content: center;
     width:100%;
+    margin-top:3%;
+}
+
+.btn-categories a {
+    color: white;
+    background-color: #00398A;
+    padding: 15px 25px;
+    border-radius: 50px;
+    text-align: center;
+    width: 80px;
+    text-decoration: none;
+    font-size:13px;
+}
+
+.btn-categories a:hover{
+    background-color: #0e499c;
+}
+
+.btn-categories {
+    margin-top: 2%;
 }
 
 .left {
@@ -262,7 +282,6 @@ h3 {
 }
 
 #btn-sdb:hover, #btn-salon:hover, #btn-bureau:hover, #btn-chambre:hover, #btn-chambre2:hover {
-#btn-bureau {
     bottom: -16em;
     left: -6em;
 }
