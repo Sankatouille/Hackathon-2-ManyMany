@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use Faker\Factory;
 use App\Entity\Produit;
 use Doctrine\Persistence\ObjectManager;
 use App\DataFixtures\SousCategorieFixtures;
@@ -90,7 +91,7 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
 
        ["Nom" => "Boite de 10 dalles vinyles auto-adhésives imitation carrelage (2,04m²) - Starfloor",
         "Prix" => "25€90",
-        "Photo" => "https://cdn.manomano.com/images/images_products/6664056/P/24599914_1.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=61",
         "Reference" => "https://www.manomano.fr/p/sol-pvc-a-coller-boites-11-dalles-auto-adhesives-204m-design-imitation-carrelage-starfloor-venezia-black-tarkett-24303122",
         "SousCategorie" => ["sousCategorie_0", "sousCategorie_1"]
         ],
@@ -100,13 +101,13 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "35€90",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://www.decoweb.com/images/thumbs_cache/300x300_31006020-1-bxiaR.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=60",
         "Reference" => "https://www.manomano.fr/p/dalle-pvc-clipsable-tarkett-starfloor-click-30-retro-indigo-dalle-de-310-x-603-mm-9-dalles-boite-soit-167m-11997296",
         "SousCategorie" => "sousCategorie_0"],
 
         ["Nom" => "Boite de 9 lames vinyles clipsables imitation parquet (2 m²)",
         "Prix" => "53€80",
-        "Photo" => "https://cdn.manomano.com/images/images_products/6664056/P/18800735_1.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=59",
         "Reference" => "https://www.manomano.fr/p/boite-9-lames-pvc-clipsables-1222x183mm-2-m-starfloor-click-30-washed-pine-snow-tarkett-18483974",
         "SousCategorie" => [0,1,6]],
 
@@ -114,7 +115,7 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "78€19",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://media.adeo.com/marketplace/MKP/82912310/9510240b62f8086d06478545534ce967.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds",
+        "Photo" => "https://picsum.photos/200/300?random=58",
         "Reference" => "https://www.manomano.fr/p/revetement-de-sol-adhesif-lames-laminees-pvc-vinyle-effet-naturel-compatible-au-plancher-chauffant-28-pieces-392-m-natural-siberian-oak-chene-siberien-23675545",
         "SousCategorie" => "0"],
 
@@ -122,7 +123,7 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "122€00",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://cdn.manomano.com/sol-pvc-best-motif-granit-noir-argente-4-x-3m-P-3594306-14986263_1.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=57",
         "Reference" => "https://www.manomano.fr/p/sol-pvc-best-motif-granit-noir-argente-14666419?model_id=14666422",
         "SousCategorie" => "0"],
 
@@ -130,7 +131,7 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "43€77",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://www.asdecarreaux.com/84614-product_default/carrelage-imitation-parquet-vintage-style-usine-luck-20x114-cm-114m.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=56",
         "Reference" => "https://www.manomano.fr/p/carrelage-imitation-parquet-vintage-style-usine-luck-20x114-cm-114m-17670523",
        ],
 
@@ -138,7 +139,7 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "18€50",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://cdn.manomano.com/images/images_products/9362134/P/16907052_1.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=55",
         "Reference" => "https://www.manomano.fr/catalogue/p/serie-electra-15x15-carton-de-050-m2-11253983",
        ],
 
@@ -146,7 +147,7 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "31€24",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://www.magasinducarrelage.fr/3343-tm_large_default/serie-fired-star-pink-20x20-carton-de-100-m2.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=54",
         "Reference" => "https://www.manomano.fr/catalogue/p/srie-fired-star-green-20x20-carton-de-100-m2-27499988",
        ],
 
@@ -154,19 +155,19 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "53€46",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://www.asdecarreaux.com/54424-product_default/carrelage-a-motif-effet-terrazzo-20x20-cm-bianco-macro-116-m.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=53",
         "Reference" => "https://www.manomano.fr/p/carrelage-a-motif-effet-terrazzo-20x20-cm-bianco-macro-116-m-26472457",
        ],
 
         ["Nom" => "Carrelage hexagonal oxidé OUTEN ROBIN 17,5X20- 0,71 M²",
         "Prix" => "38€19",
-        "Photo" => "https://cdn.manomano.com/carrelage-hexagonal-oxide-outen-robin-175x20-071-m-P-555685-42002181_1.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=52",
         "Reference" => "https://www.manomano.fr/p/carrelage-hexagonal-oxid-outen-robin-175x20--071-m-42094408",
        ],
 
        ["Nom" => "Boite de 10 dalles vinyles auto-adhésives imitation carrelage (2,04m²) - Starfloor",
         "Prix" => "25€90",
-        "Photo" => "https://cdn.manomano.com/images/images_products/6664056/P/24599914_1.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=51",
         "Reference" => "https://www.manomano.fr/p/sol-pvc-a-coller-boites-11-dalles-auto-adhesives-204m-design-imitation-carrelage-starfloor-venezia-black-tarkett-24303122",
         "SousCategorie" => ["sousCategorie_0", "sousCategorie_1"]
         ],
@@ -176,13 +177,13 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "35€90",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://www.decoweb.com/images/thumbs_cache/300x300_31006020-1-bxiaR.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=50",
         "Reference" => "https://www.manomano.fr/p/dalle-pvc-clipsable-tarkett-starfloor-click-30-retro-indigo-dalle-de-310-x-603-mm-9-dalles-boite-soit-167m-11997296",
         "SousCategorie" => "sousCategorie_0"],
 
         ["Nom" => "Boite de 9 lames vinyles clipsables imitation parquet (2 m²)",
         "Prix" => "53€80",
-        "Photo" => "https://cdn.manomano.com/images/images_products/6664056/P/18800735_1.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=49",
         "Reference" => "https://www.manomano.fr/p/boite-9-lames-pvc-clipsables-1222x183mm-2-m-starfloor-click-30-washed-pine-snow-tarkett-18483974",
         "SousCategorie" => [0,1,6]],
 
@@ -190,7 +191,7 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "78€19",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://media.adeo.com/marketplace/MKP/82912310/9510240b62f8086d06478545534ce967.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds",
+        "Photo" => "https://picsum.photos/200/300?random=48",
         "Reference" => "https://www.manomano.fr/p/revetement-de-sol-adhesif-lames-laminees-pvc-vinyle-effet-naturel-compatible-au-plancher-chauffant-28-pieces-392-m-natural-siberian-oak-chene-siberien-23675545",
         "SousCategorie" => "0"],
 
@@ -198,7 +199,7 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "122€00",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://cdn.manomano.com/sol-pvc-best-motif-granit-noir-argente-4-x-3m-P-3594306-14986263_1.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=47",
         "Reference" => "https://www.manomano.fr/p/sol-pvc-best-motif-granit-noir-argente-14666419?model_id=14666422",
         "SousCategorie" => "0"],
 
@@ -206,7 +207,7 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "43€77",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://www.asdecarreaux.com/84614-product_default/carrelage-imitation-parquet-vintage-style-usine-luck-20x114-cm-114m.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=46",
         "Reference" => "https://www.manomano.fr/p/carrelage-imitation-parquet-vintage-style-usine-luck-20x114-cm-114m-17670523",
        ],
 
@@ -214,7 +215,7 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "18€50",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://cdn.manomano.com/images/images_products/9362134/P/16907052_1.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=45",
         "Reference" => "https://www.manomano.fr/catalogue/p/serie-electra-15x15-carton-de-050-m2-11253983",
        ],
 
@@ -222,7 +223,7 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "31€24",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://www.magasinducarrelage.fr/3343-tm_large_default/serie-fired-star-pink-20x20-carton-de-100-m2.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=44",
         "Reference" => "https://www.manomano.fr/catalogue/p/srie-fired-star-green-20x20-carton-de-100-m2-27499988",
        ],
 
@@ -230,19 +231,19 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "53€46",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://www.asdecarreaux.com/54424-product_default/carrelage-a-motif-effet-terrazzo-20x20-cm-bianco-macro-116-m.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=43",
         "Reference" => "https://www.manomano.fr/p/carrelage-a-motif-effet-terrazzo-20x20-cm-bianco-macro-116-m-26472457",
        ],
 
         ["Nom" => "Carrelage hexagonal oxidé OUTEN ROBIN 17,5X20- 0,71 M²",
         "Prix" => "38€19",
-        "Photo" => "https://cdn.manomano.com/carrelage-hexagonal-oxide-outen-robin-175x20-071-m-P-555685-42002181_1.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=42",
         "Reference" => "https://www.manomano.fr/p/carrelage-hexagonal-oxid-outen-robin-175x20--071-m-42094408",
        ],
 
        ["Nom" => "Boite de 10 dalles vinyles auto-adhésives imitation carrelage (2,04m²) - Starfloor",
         "Prix" => "25€90",
-        "Photo" => "https://cdn.manomano.com/images/images_products/6664056/P/24599914_1.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=41",
         "Reference" => "https://www.manomano.fr/p/sol-pvc-a-coller-boites-11-dalles-auto-adhesives-204m-design-imitation-carrelage-starfloor-venezia-black-tarkett-24303122",
         "SousCategorie" => ["sousCategorie_0", "sousCategorie_1"]
         ],
@@ -252,13 +253,13 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "35€90",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://www.decoweb.com/images/thumbs_cache/300x300_31006020-1-bxiaR.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=40",
         "Reference" => "https://www.manomano.fr/p/dalle-pvc-clipsable-tarkett-starfloor-click-30-retro-indigo-dalle-de-310-x-603-mm-9-dalles-boite-soit-167m-11997296",
         "SousCategorie" => "sousCategorie_0"],
 
         ["Nom" => "Boite de 9 lames vinyles clipsables imitation parquet (2 m²)",
         "Prix" => "53€80",
-        "Photo" => "https://cdn.manomano.com/images/images_products/6664056/P/18800735_1.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=39",
         "Reference" => "https://www.manomano.fr/p/boite-9-lames-pvc-clipsables-1222x183mm-2-m-starfloor-click-30-washed-pine-snow-tarkett-18483974",
        ],
 
@@ -266,7 +267,7 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "78€19",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://media.adeo.com/marketplace/MKP/82912310/9510240b62f8086d06478545534ce967.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds",
+        "Photo" => "https://picsum.photos/200/300?random=38",
         "Reference" => "https://www.manomano.fr/p/revetement-de-sol-adhesif-lames-laminees-pvc-vinyle-effet-naturel-compatible-au-plancher-chauffant-28-pieces-392-m-natural-siberian-oak-chene-siberien-23675545",
         "SousCategorie" => "0"],
 
@@ -274,7 +275,7 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "122€00",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://cdn.manomano.com/sol-pvc-best-motif-granit-noir-argente-4-x-3m-P-3594306-14986263_1.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=37",
         "Reference" => "https://www.manomano.fr/p/sol-pvc-best-motif-granit-noir-argente-14666419?model_id=14666422",
         "SousCategorie" => "0"],
 
@@ -282,7 +283,7 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "43€77",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://www.asdecarreaux.com/84614-product_default/carrelage-imitation-parquet-vintage-style-usine-luck-20x114-cm-114m.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=36",
         "Reference" => "https://www.manomano.fr/p/carrelage-imitation-parquet-vintage-style-usine-luck-20x114-cm-114m-17670523",
        ],
 
@@ -290,7 +291,7 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "18€50",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://cdn.manomano.com/images/images_products/9362134/P/16907052_1.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=35",
         "Reference" => "https://www.manomano.fr/catalogue/p/serie-electra-15x15-carton-de-050-m2-11253983",
        ],
 
@@ -298,7 +299,7 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "31€24",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://www.magasinducarrelage.fr/3343-tm_large_default/serie-fired-star-pink-20x20-carton-de-100-m2.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=34",
         "Reference" => "https://www.manomano.fr/catalogue/p/srie-fired-star-green-20x20-carton-de-100-m2-27499988",
        ],
 
@@ -306,19 +307,19 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "53€46",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://www.asdecarreaux.com/54424-product_default/carrelage-a-motif-effet-terrazzo-20x20-cm-bianco-macro-116-m.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=33",
         "Reference" => "https://www.manomano.fr/p/carrelage-a-motif-effet-terrazzo-20x20-cm-bianco-macro-116-m-26472457",
        ],
 
         ["Nom" => "Carrelage hexagonal oxidé OUTEN ROBIN 17,5X20- 0,71 M²",
         "Prix" => "38€19",
-        "Photo" => "https://cdn.manomano.com/carrelage-hexagonal-oxide-outen-robin-175x20-071-m-P-555685-42002181_1.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=32",
         "Reference" => "https://www.manomano.fr/p/carrelage-hexagonal-oxid-outen-robin-175x20--071-m-42094408",
        ],
 
        ["Nom" => "Boite de 10 dalles vinyles auto-adhésives imitation carrelage (2,04m²) - Starfloor",
         "Prix" => "25€90",
-        "Photo" => "https://cdn.manomano.com/images/images_products/6664056/P/24599914_1.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=31",
         "Reference" => "https://www.manomano.fr/p/sol-pvc-a-coller-boites-11-dalles-auto-adhesives-204m-design-imitation-carrelage-starfloor-venezia-black-tarkett-24303122",
         "SousCategorie" => ["sousCategorie_0", "sousCategorie_1"]
         ],
@@ -328,89 +329,13 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "35€90",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://www.decoweb.com/images/thumbs_cache/300x300_31006020-1-bxiaR.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=30",
         "Reference" => "https://www.manomano.fr/p/dalle-pvc-clipsable-tarkett-starfloor-click-30-retro-indigo-dalle-de-310-x-603-mm-9-dalles-boite-soit-167m-11997296",
         "SousCategorie" => "sousCategorie_0"],
 
         ["Nom" => "Boite de 9 lames vinyles clipsables imitation parquet (2 m²)",
         "Prix" => "53€80",
-        "Photo" => "https://cdn.manomano.com/images/images_products/6664056/P/18800735_1.jpg",
-        "Reference" => "https://www.manomano.fr/p/boite-9-lames-pvc-clipsables-1222x183mm-2-m-starfloor-click-30-washed-pine-snow-tarkett-18483974",
-        "SousCategorie" => [0,1,6]],
-
-        ["Nom" => "Revêtement de Sol Adhésif Lames Laminées PVC Vinyle Effet Naturel Compatible au Plancher Chauffant 28 Pièces 3,92 m² Natural Siberian Oak Chêne Sibérien",
-        "Prix" => "78€19",
-        "Informations" => "",
-        "Marque" => "",
-        "Photo" => "https://media.adeo.com/marketplace/MKP/82912310/9510240b62f8086d06478545534ce967.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds",
-        "Reference" => "https://www.manomano.fr/p/revetement-de-sol-adhesif-lames-laminees-pvc-vinyle-effet-naturel-compatible-au-plancher-chauffant-28-pieces-392-m-natural-siberian-oak-chene-siberien-23675545",
-        "SousCategorie" => "0"],
-
-        ["Nom" => "Sol PVC Best - Motif Granit Noir Argenté - 3 x 3m",
-        "Prix" => "122€00",
-        "Informations" => "",
-        "Marque" => "",
-        "Photo" => "https://cdn.manomano.com/sol-pvc-best-motif-granit-noir-argente-4-x-3m-P-3594306-14986263_1.jpg",
-        "Reference" => "https://www.manomano.fr/p/sol-pvc-best-motif-granit-noir-argente-14666419?model_id=14666422",
-        "SousCategorie" => "0"],
-
-        ["Nom" => "Carrelage imitation parquet vintage style usine LUCK 20x114 cm",
-        "Prix" => "43€77",
-        "Informations" => "",
-        "Marque" => "",
-        "Photo" => "https://www.asdecarreaux.com/84614-product_default/carrelage-imitation-parquet-vintage-style-usine-luck-20x114-cm-114m.jpg",
-        "Reference" => "https://www.manomano.fr/p/carrelage-imitation-parquet-vintage-style-usine-luck-20x114-cm-114m-17670523",
-       ],
-
-        ["Nom" => "Série Electra 15x15 (carton de 0,50 m2)",
-        "Prix" => "18€50",
-        "Informations" => "",
-        "Marque" => "",
-        "Photo" => "https://cdn.manomano.com/images/images_products/9362134/P/16907052_1.jpg",
-        "Reference" => "https://www.manomano.fr/catalogue/p/serie-electra-15x15-carton-de-050-m2-11253983",
-       ],
-
-        ["Nom" => "Série Fired Star Green 20x20 (carton de 1,00 m2)",
-        "Prix" => "31€24",
-        "Informations" => "",
-        "Marque" => "",
-        "Photo" => "https://www.magasinducarrelage.fr/3343-tm_large_default/serie-fired-star-pink-20x20-carton-de-100-m2.jpg",
-        "Reference" => "https://www.manomano.fr/catalogue/p/srie-fired-star-green-20x20-carton-de-100-m2-27499988",
-       ],
-
-        ["Nom" => "Carrelage à motif effet terrazzo 20x20 cm BIANCO MACRO - 1.16 m²",
-        "Prix" => "53€46",
-        "Informations" => "",
-        "Marque" => "",
-        "Photo" => "https://www.asdecarreaux.com/54424-product_default/carrelage-a-motif-effet-terrazzo-20x20-cm-bianco-macro-116-m.jpg",
-        "Reference" => "https://www.manomano.fr/p/carrelage-a-motif-effet-terrazzo-20x20-cm-bianco-macro-116-m-26472457",
-       ],
-
-        ["Nom" => "Carrelage hexagonal oxidé OUTEN ROBIN 17,5X20- 0,71 M²",
-        "Prix" => "38€19",
-        "Photo" => "https://cdn.manomano.com/carrelage-hexagonal-oxide-outen-robin-175x20-071-m-P-555685-42002181_1.jpg",
-        "Reference" => "https://www.manomano.fr/p/carrelage-hexagonal-oxid-outen-robin-175x20--071-m-42094408",
-       ],
-
-       ["Nom" => "Boite de 10 dalles vinyles auto-adhésives imitation carrelage (2,04m²) - Starfloor",
-        "Prix" => "25€90",
-        "Photo" => "https://cdn.manomano.com/images/images_products/6664056/P/24599914_1.jpg",
-        "Reference" => "https://www.manomano.fr/p/sol-pvc-a-coller-boites-11-dalles-auto-adhesives-204m-design-imitation-carrelage-starfloor-venezia-black-tarkett-24303122",
-        "SousCategorie" => ["sousCategorie_0", "sousCategorie_1"]
-        ],
-
-
-        ["Nom" => "Boite de 9 dalles vinyles clipsables imitation carreau de ciment",
-        "Prix" => "35€90",
-        "Informations" => "",
-        "Marque" => "",
-        "Photo" => "https://www.decoweb.com/images/thumbs_cache/300x300_31006020-1-bxiaR.jpg",
-        "Reference" => "https://www.manomano.fr/p/dalle-pvc-clipsable-tarkett-starfloor-click-30-retro-indigo-dalle-de-310-x-603-mm-9-dalles-boite-soit-167m-11997296",
-        "SousCategorie" => "sousCategorie_0"],
-
-        ["Nom" => "Boite de 9 lames vinyles clipsables imitation parquet (2 m²)",
-        "Prix" => "53€80",
-        "Photo" => "https://cdn.manomano.com/images/images_products/6664056/P/18800735_1.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=29",
         "Reference" => "https://www.manomano.fr/p/boite-9-lames-pvc-clipsables-1222x183mm-2-m-starfloor-click-30-washed-pine-snow-tarkett-18483974",
         "SousCategorie" => [0,1,6]],
 
@@ -418,7 +343,7 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "78€19",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://media.adeo.com/marketplace/MKP/82912310/9510240b62f8086d06478545534ce967.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds",
+        "Photo" => "https://picsum.photos/200/300?random=27",
         "Reference" => "https://www.manomano.fr/p/revetement-de-sol-adhesif-lames-laminees-pvc-vinyle-effet-naturel-compatible-au-plancher-chauffant-28-pieces-392-m-natural-siberian-oak-chene-siberien-23675545",
         "SousCategorie" => "0"],
 
@@ -426,7 +351,7 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "122€00",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://cdn.manomano.com/sol-pvc-best-motif-granit-noir-argente-4-x-3m-P-3594306-14986263_1.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=26",
         "Reference" => "https://www.manomano.fr/p/sol-pvc-best-motif-granit-noir-argente-14666419?model_id=14666422",
         "SousCategorie" => "0"],
 
@@ -434,7 +359,7 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "43€77",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://www.asdecarreaux.com/84614-product_default/carrelage-imitation-parquet-vintage-style-usine-luck-20x114-cm-114m.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=25",
         "Reference" => "https://www.manomano.fr/p/carrelage-imitation-parquet-vintage-style-usine-luck-20x114-cm-114m-17670523",
        ],
 
@@ -442,7 +367,7 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "18€50",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://cdn.manomano.com/images/images_products/9362134/P/16907052_1.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=24",
         "Reference" => "https://www.manomano.fr/catalogue/p/serie-electra-15x15-carton-de-050-m2-11253983",
        ],
 
@@ -450,7 +375,7 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "31€24",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://www.magasinducarrelage.fr/3343-tm_large_default/serie-fired-star-pink-20x20-carton-de-100-m2.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=23",
         "Reference" => "https://www.manomano.fr/catalogue/p/srie-fired-star-green-20x20-carton-de-100-m2-27499988",
        ],
 
@@ -458,19 +383,95 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "53€46",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://www.asdecarreaux.com/54424-product_default/carrelage-a-motif-effet-terrazzo-20x20-cm-bianco-macro-116-m.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=22",
         "Reference" => "https://www.manomano.fr/p/carrelage-a-motif-effet-terrazzo-20x20-cm-bianco-macro-116-m-26472457",
        ],
 
         ["Nom" => "Carrelage hexagonal oxidé OUTEN ROBIN 17,5X20- 0,71 M²",
         "Prix" => "38€19",
-        "Photo" => "https://cdn.manomano.com/carrelage-hexagonal-oxide-outen-robin-175x20-071-m-P-555685-42002181_1.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=21",
         "Reference" => "https://www.manomano.fr/p/carrelage-hexagonal-oxid-outen-robin-175x20--071-m-42094408",
        ],
 
        ["Nom" => "Boite de 10 dalles vinyles auto-adhésives imitation carrelage (2,04m²) - Starfloor",
         "Prix" => "25€90",
-        "Photo" => "https://cdn.manomano.com/images/images_products/6664056/P/24599914_1.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=20",
+        "Reference" => "https://www.manomano.fr/p/sol-pvc-a-coller-boites-11-dalles-auto-adhesives-204m-design-imitation-carrelage-starfloor-venezia-black-tarkett-24303122",
+        "SousCategorie" => ["sousCategorie_0", "sousCategorie_1"]
+        ],
+
+
+        ["Nom" => "Boite de 9 dalles vinyles clipsables imitation carreau de ciment",
+        "Prix" => "35€90",
+        "Informations" => "",
+        "Marque" => "",
+        "Photo" => "https://picsum.photos/200/300?random=19",
+        "Reference" => "https://www.manomano.fr/p/dalle-pvc-clipsable-tarkett-starfloor-click-30-retro-indigo-dalle-de-310-x-603-mm-9-dalles-boite-soit-167m-11997296",
+        "SousCategorie" => "sousCategorie_0"],
+
+        ["Nom" => "Boite de 9 lames vinyles clipsables imitation parquet (2 m²)",
+        "Prix" => "53€80",
+        "Photo" => "https://picsum.photos/200/300?random=18",
+        "Reference" => "https://www.manomano.fr/p/boite-9-lames-pvc-clipsables-1222x183mm-2-m-starfloor-click-30-washed-pine-snow-tarkett-18483974",
+        "SousCategorie" => [0,1,6]],
+
+        ["Nom" => "Revêtement de Sol Adhésif Lames Laminées PVC Vinyle Effet Naturel Compatible au Plancher Chauffant 28 Pièces 3,92 m² Natural Siberian Oak Chêne Sibérien",
+        "Prix" => "78€19",
+        "Informations" => "",
+        "Marque" => "",
+        "Photo" => "https://picsum.photos/200/300?random=17",
+        "Reference" => "https://www.manomano.fr/p/revetement-de-sol-adhesif-lames-laminees-pvc-vinyle-effet-naturel-compatible-au-plancher-chauffant-28-pieces-392-m-natural-siberian-oak-chene-siberien-23675545",
+        "SousCategorie" => "0"],
+
+        ["Nom" => "Sol PVC Best - Motif Granit Noir Argenté - 3 x 3m",
+        "Prix" => "122€00",
+        "Informations" => "",
+        "Marque" => "",
+        "Photo" => "https://picsum.photos/200/300?random=16",
+        "Reference" => "https://www.manomano.fr/p/sol-pvc-best-motif-granit-noir-argente-14666419?model_id=14666422",
+        "SousCategorie" => "0"],
+
+        ["Nom" => "Carrelage imitation parquet vintage style usine LUCK 20x114 cm",
+        "Prix" => "43€77",
+        "Informations" => "",
+        "Marque" => "",
+        "Photo" => "https://picsum.photos/200/300?random=15",
+        "Reference" => "https://www.manomano.fr/p/carrelage-imitation-parquet-vintage-style-usine-luck-20x114-cm-114m-17670523",
+       ],
+
+        ["Nom" => "Série Electra 15x15 (carton de 0,50 m2)",
+        "Prix" => "18€50",
+        "Informations" => "",
+        "Marque" => "",
+        "Photo" => "https://picsum.photos/200/300?random=14",
+        "Reference" => "https://www.manomano.fr/catalogue/p/serie-electra-15x15-carton-de-050-m2-11253983",
+       ],
+
+        ["Nom" => "Série Fired Star Green 20x20 (carton de 1,00 m2)",
+        "Prix" => "31€24",
+        "Informations" => "",
+        "Marque" => "",
+        "Photo" => "https://picsum.photos/200/300?random=13",
+        "Reference" => "https://www.manomano.fr/catalogue/p/srie-fired-star-green-20x20-carton-de-100-m2-27499988",
+       ],
+
+        ["Nom" => "Carrelage à motif effet terrazzo 20x20 cm BIANCO MACRO - 1.16 m²",
+        "Prix" => "53€46",
+        "Informations" => "",
+        "Marque" => "",
+        "Photo" => "https://picsum.photos/200/300?random=12",
+        "Reference" => "https://www.manomano.fr/p/carrelage-a-motif-effet-terrazzo-20x20-cm-bianco-macro-116-m-26472457",
+       ],
+
+        ["Nom" => "Carrelage hexagonal oxidé OUTEN ROBIN 17,5X20- 0,71 M²",
+        "Prix" => "38€19",
+        "Photo" => "https://picsum.photos/200/300?random=11",
+        "Reference" => "https://www.manomano.fr/p/carrelage-hexagonal-oxid-outen-robin-175x20--071-m-42094408",
+       ],
+
+       ["Nom" => "Boite de 10 dalles vinyles auto-adhésives imitation carrelage (2,04m²) - Starfloor",
+        "Prix" => "25€90",
+        "Photo" => "https://picsum.photos/200/300?random=10",
         "Reference" => "https://www.manomano.fr/p/sol-pvc-a-coller-boites-11-dalles-auto-adhesives-204m-design-imitation-carrelage-starfloor-venezia-black-tarkett-24303122",
         ],
 
@@ -479,19 +480,19 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "35€90",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://www.decoweb.com/images/thumbs_cache/300x300_31006020-1-bxiaR.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=9",
         "Reference" => "https://www.manomano.fr/p/dalle-pvc-clipsable-tarkett-starfloor-click-30-retro-indigo-dalle-de-310-x-603-mm-9-dalles-boite-soit-167m-11997296"],
 
         ["Nom" => "Boite de 9 lames vinyles clipsables imitation parquet (2 m²)",
         "Prix" => "53€80",
-        "Photo" => "https://cdn.manomano.com/images/images_products/6664056/P/18800735_1.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=8",
         "Reference" => "https://www.manomano.fr/p/boite-9-lames-pvc-clipsables-1222x183mm-2-m-starfloor-click-30-washed-pine-snow-tarkett-18483974"],
 
         ["Nom" => "Revêtement de Sol Adhésif Lames Laminées PVC Vinyle Effet Naturel Compatible au Plancher Chauffant 28 Pièces 3,92 m² Natural Siberian Oak Chêne Sibérien",
         "Prix" => "78€19",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://media.adeo.com/marketplace/MKP/82912310/9510240b62f8086d06478545534ce967.jpeg?width=650&height=650&format=jpg&quality=80&fit=bounds",
+        "Photo" => "https://picsum.photos/200/300?random=7",
         "Reference" => "https://www.manomano.fr/p/revetement-de-sol-adhesif-lames-laminees-pvc-vinyle-effet-naturel-compatible-au-plancher-chauffant-28-pieces-392-m-natural-siberian-oak-chene-siberien-23675545",
         ],
 
@@ -499,7 +500,7 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "122€00",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://cdn.manomano.com/sol-pvc-best-motif-granit-noir-argente-4-x-3m-P-3594306-14986263_1.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=6",
         "Reference" => "https://www.manomano.fr/p/sol-pvc-best-motif-granit-noir-argente-14666419?model_id=14666422",
         "SousCategorie" => "0"],
 
@@ -507,7 +508,7 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "43€77",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://www.asdecarreaux.com/84614-product_default/carrelage-imitation-parquet-vintage-style-usine-luck-20x114-cm-114m.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=5",
         "Reference" => "https://www.manomano.fr/p/carrelage-imitation-parquet-vintage-style-usine-luck-20x114-cm-114m-17670523",
        ],
 
@@ -515,7 +516,7 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "18€50",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://cdn.manomano.com/images/images_products/9362134/P/16907052_1.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=4",
         "Reference" => "https://www.manomano.fr/catalogue/p/serie-electra-15x15-carton-de-050-m2-11253983",
        ],
 
@@ -523,7 +524,7 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "31€24",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://www.magasinducarrelage.fr/3343-tm_large_default/serie-fired-star-pink-20x20-carton-de-100-m2.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=3",
         "Reference" => "https://www.manomano.fr/catalogue/p/srie-fired-star-green-20x20-carton-de-100-m2-27499988",
        ],
 
@@ -531,23 +532,26 @@ class ProduitFixtures extends Fixture implements DependentFixtureInterface
         "Prix" => "53€46",
         "Informations" => "",
         "Marque" => "",
-        "Photo" => "https://www.asdecarreaux.com/54424-product_default/carrelage-a-motif-effet-terrazzo-20x20-cm-bianco-macro-116-m.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=2",
         "Reference" => "https://www.manomano.fr/p/carrelage-a-motif-effet-terrazzo-20x20-cm-bianco-macro-116-m-26472457",
        ],
 
         ["Nom" => "Carrelage hexagonal oxidé OUTEN ROBIN 17,5X20- 0,71 M²",
         "Prix" => "38€19",
-        "Photo" => "https://cdn.manomano.com/carrelage-hexagonal-oxide-outen-robin-175x20-071-m-P-555685-42002181_1.jpg",
+        "Photo" => "https://picsum.photos/200/300?random=1",
         "Reference" => "https://www.manomano.fr/p/carrelage-hexagonal-oxid-outen-robin-175x20--071-m-42094408"]
     ];
 
     public function load(ObjectManager $manager): void
     {
+        $faker = Factory::create('fr_FR');
+        
         foreach (self::PRODUITS as $key => $produitInfos) {
             $produit = new Produit();
             $produit->setNom($produitInfos["Nom"]);
             $produit->setPrix($produitInfos["Prix"]);
             $produit->setPhoto($produitInfos["Photo"]);
+            // $produit->setPhoto("https://picsum.photos/200/300?random=4");
             $produit->setReference($produitInfos["Reference"]);
             $produit->setTag(array_rand(["materiaux","outils","ameublement"]));
              for ($i=0; $i<4; $i++) {
